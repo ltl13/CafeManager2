@@ -41,7 +41,7 @@
             this.cbFood = new System.Windows.Forms.ComboBox();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.btnAddFood = new System.Windows.Forms.Button();
-            this.btnPay = new System.Windows.Forms.Button();
+            this.btnCheckOut = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlAddFood.SuspendLayout();
@@ -97,11 +97,11 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnPay);
+            this.panel1.Controls.Add(this.btnCheckOut);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(437, 383);
+            this.panel1.Location = new System.Drawing.Point(437, 389);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(363, 67);
+            this.panel1.Size = new System.Drawing.Size(363, 61);
             this.panel1.TabIndex = 2;
             // 
             // pnlAddFood
@@ -121,7 +121,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(437, 96);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(363, 287);
+            this.panel3.Size = new System.Drawing.Size(363, 293);
             this.panel3.TabIndex = 4;
             // 
             // cbCagetory
@@ -171,15 +171,15 @@
             this.btnAddFood.Text = "Add";
             this.btnAddFood.UseVisualStyleBackColor = true;
             // 
-            // btnPay
+            // btnCheckOut
             // 
-            this.btnPay.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnPay.Location = new System.Drawing.Point(288, 0);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(75, 67);
-            this.btnPay.TabIndex = 4;
-            this.btnPay.Text = "Pay";
-            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnCheckOut.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCheckOut.Location = new System.Drawing.Point(280, 0);
+            this.btnCheckOut.Name = "btnCheckOut";
+            this.btnCheckOut.Size = new System.Drawing.Size(83, 61);
+            this.btnCheckOut.TabIndex = 4;
+            this.btnCheckOut.Text = "Check out";
+            this.btnCheckOut.UseVisualStyleBackColor = true;
             // 
             // fMain
             // 
@@ -219,6 +219,6 @@
         private System.Windows.Forms.ComboBox cbFood;
         private System.Windows.Forms.ComboBox cbCagetory;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Button btnCheckOut;
     }
 }
