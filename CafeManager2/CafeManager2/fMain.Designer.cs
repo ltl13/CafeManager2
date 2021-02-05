@@ -44,6 +44,8 @@
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.btnDiscount = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btnSwitchTable = new System.Windows.Forms.Button();
+            this.cbSwitchTable = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlAddFood.SuspendLayout();
@@ -100,6 +102,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbSwitchTable);
+            this.panel1.Controls.Add(this.btnSwitchTable);
             this.panel1.Controls.Add(this.numericUpDown1);
             this.panel1.Controls.Add(this.btnDiscount);
             this.panel1.Controls.Add(this.btnCheckOut);
@@ -188,7 +192,7 @@
             // 
             // btnDiscount
             // 
-            this.btnDiscount.Location = new System.Drawing.Point(195, 0);
+            this.btnDiscount.Location = new System.Drawing.Point(147, 0);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(79, 32);
             this.btnDiscount.TabIndex = 5;
@@ -198,11 +202,28 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(198, 34);
+            this.numericUpDown1.Location = new System.Drawing.Point(150, 34);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(76, 24);
             this.numericUpDown1.TabIndex = 6;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnSwitchTable
+            // 
+            this.btnSwitchTable.Location = new System.Drawing.Point(0, 0);
+            this.btnSwitchTable.Name = "btnSwitchTable";
+            this.btnSwitchTable.Size = new System.Drawing.Size(92, 32);
+            this.btnSwitchTable.TabIndex = 7;
+            this.btnSwitchTable.Text = "Switch table";
+            this.btnSwitchTable.UseVisualStyleBackColor = true;
+            // 
+            // cbSwitchTable
+            // 
+            this.cbSwitchTable.FormattingEnabled = true;
+            this.cbSwitchTable.Location = new System.Drawing.Point(0, 34);
+            this.cbSwitchTable.Name = "cbSwitchTable";
+            this.cbSwitchTable.Size = new System.Drawing.Size(92, 24);
+            this.cbSwitchTable.TabIndex = 8;
             // 
             // fMain
             // 
@@ -246,5 +267,7 @@
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnDiscount;
+        private System.Windows.Forms.ComboBox cbSwitchTable;
+        private System.Windows.Forms.Button btnSwitchTable;
     }
 }
