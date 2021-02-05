@@ -16,5 +16,13 @@ namespace CafeManager2
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            fMain newForm = new fMain();
+            this.Hide();
+            newForm.ShowDialog();
+            this.Show();
+        }
     }
 }
