@@ -16,5 +16,22 @@ namespace CafeManager2
         {
             InitializeComponent();
         }
+
+        private void informationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fAccount fAcc = new fAccount();
+            fAcc.ShowDialog();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void adminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fAdmin fAd = new fAdmin();
+            fAd.ShowDialog();
+        }
     }
 }
