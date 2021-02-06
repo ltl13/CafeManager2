@@ -63,3 +63,33 @@ CREATE TABLE BillInfo
 	FOREIGN KEY (idFood) REFERENCES dbo.Food(id)
 )
 GO
+
+INSERT INTO dbo.Account
+( 
+	UserName ,
+    DisplayName ,
+    PassWord ,
+    Type
+)
+VALUES  
+( 
+	N'a',
+	N'Admin',
+	N'1',
+	1
+)
+INSERT INTO dbo.Account
+( 
+	UserName ,
+    DisplayName ,
+    PassWord ,
+    Type
+)
+VALUES  
+( 
+	N'luan',
+	N'Luân',
+	N'130201',
+	0
+)
+GO
