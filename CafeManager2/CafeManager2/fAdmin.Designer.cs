@@ -378,6 +378,7 @@
             // 
             this.tbxFoodID.Location = new System.Drawing.Point(107, 10);
             this.tbxFoodID.Name = "tbxFoodID";
+            this.tbxFoodID.ReadOnly = true;
             this.tbxFoodID.Size = new System.Drawing.Size(201, 28);
             this.tbxFoodID.TabIndex = 1;
             // 
@@ -475,6 +476,7 @@
             // 
             this.tbxCagetoryID.Location = new System.Drawing.Point(107, 10);
             this.tbxCagetoryID.Name = "tbxCagetoryID";
+            this.tbxCagetoryID.ReadOnly = true;
             this.tbxCagetoryID.Size = new System.Drawing.Size(201, 28);
             this.tbxCagetoryID.TabIndex = 1;
             // 
@@ -590,6 +592,7 @@
             // 
             this.tbxTableID.Location = new System.Drawing.Point(107, 10);
             this.tbxTableID.Name = "tbxTableID";
+            this.tbxTableID.ReadOnly = true;
             this.tbxTableID.Size = new System.Drawing.Size(201, 28);
             this.tbxTableID.TabIndex = 1;
             // 
@@ -731,6 +734,7 @@
             // 
             this.tbxUsername.Location = new System.Drawing.Point(130, 10);
             this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.ReadOnly = true;
             this.tbxUsername.Size = new System.Drawing.Size(178, 28);
             this.tbxUsername.TabIndex = 1;
             // 
