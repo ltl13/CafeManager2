@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace CafeManager2
 {
@@ -15,6 +16,13 @@ namespace CafeManager2
         public fAdmin()
         {
             InitializeComponent();
+        }
+        void LoadAccountList()
+        {
+            string str = @"Data Source=.\SQLEXPRESS;Initial Catalog=CafeManager;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(str);
+            string query = "SELECT * FROM dbo.Account";
+            SqlCommand command = new SqlCommand(query);
         }
     }
 }

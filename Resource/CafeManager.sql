@@ -93,3 +93,5 @@ VALUES
 	0
 )
 GO
+
+SELECT * FROM dbo.Account
