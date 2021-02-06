@@ -40,11 +40,27 @@
             this.dtpkFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpkTo = new System.Windows.Forms.DateTimePicker();
             this.btnView = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dtgvFood = new System.Windows.Forms.DataGridView();
+            this.btnAddFood = new System.Windows.Forms.Button();
+            this.btnDeleteFood = new System.Windows.Forms.Button();
+            this.btnEditFood = new System.Windows.Forms.Button();
+            this.btnViewFood = new System.Windows.Forms.Button();
+            this.tbxSearchFood = new System.Windows.Forms.TextBox();
+            this.btnSearchFood = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
+            this.tpFood.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvFood)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -76,6 +92,10 @@
             // 
             // tpFood
             // 
+            this.tpFood.Controls.Add(this.panel6);
+            this.tpFood.Controls.Add(this.panel5);
+            this.tpFood.Controls.Add(this.panel4);
+            this.tpFood.Controls.Add(this.panel3);
             this.tpFood.Location = new System.Drawing.Point(4, 31);
             this.tpFood.Name = "tpFood";
             this.tpFood.Padding = new System.Windows.Forms.Padding(3);
@@ -170,6 +190,109 @@
             this.btnView.Text = "Xem";
             this.btnView.UseVisualStyleBackColor = true;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnViewFood);
+            this.panel3.Controls.Add(this.btnEditFood);
+            this.panel3.Controls.Add(this.btnDeleteFood);
+            this.panel3.Controls.Add(this.btnAddFood);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(400, 63);
+            this.panel3.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dtgvFood);
+            this.panel4.Location = new System.Drawing.Point(0, 69);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(400, 435);
+            this.panel4.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnSearchFood);
+            this.panel5.Controls.Add(this.tbxSearchFood);
+            this.panel5.Location = new System.Drawing.Point(406, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(317, 63);
+            this.panel5.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(406, 69);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(317, 435);
+            this.panel6.TabIndex = 3;
+            // 
+            // dtgvFood
+            // 
+            this.dtgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvFood.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvFood.Location = new System.Drawing.Point(0, 0);
+            this.dtgvFood.Name = "dtgvFood";
+            this.dtgvFood.RowHeadersWidth = 51;
+            this.dtgvFood.RowTemplate.Height = 24;
+            this.dtgvFood.Size = new System.Drawing.Size(400, 435);
+            this.dtgvFood.TabIndex = 0;
+            // 
+            // btnAddFood
+            // 
+            this.btnAddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFood.Location = new System.Drawing.Point(17, 6);
+            this.btnAddFood.Name = "btnAddFood";
+            this.btnAddFood.Size = new System.Drawing.Size(79, 50);
+            this.btnAddFood.TabIndex = 0;
+            this.btnAddFood.Text = "Thêm";
+            this.btnAddFood.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteFood
+            // 
+            this.btnDeleteFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteFood.Location = new System.Drawing.Point(113, 6);
+            this.btnDeleteFood.Name = "btnDeleteFood";
+            this.btnDeleteFood.Size = new System.Drawing.Size(79, 50);
+            this.btnDeleteFood.TabIndex = 1;
+            this.btnDeleteFood.Text = "Xóa";
+            this.btnDeleteFood.UseVisualStyleBackColor = true;
+            // 
+            // btnEditFood
+            // 
+            this.btnEditFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditFood.Location = new System.Drawing.Point(209, 6);
+            this.btnEditFood.Name = "btnEditFood";
+            this.btnEditFood.Size = new System.Drawing.Size(79, 50);
+            this.btnEditFood.TabIndex = 2;
+            this.btnEditFood.Text = "Sửa";
+            this.btnEditFood.UseVisualStyleBackColor = true;
+            // 
+            // btnViewFood
+            // 
+            this.btnViewFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewFood.Location = new System.Drawing.Point(306, 6);
+            this.btnViewFood.Name = "btnViewFood";
+            this.btnViewFood.Size = new System.Drawing.Size(79, 50);
+            this.btnViewFood.TabIndex = 3;
+            this.btnViewFood.Text = "Xem";
+            this.btnViewFood.UseVisualStyleBackColor = true;
+            // 
+            // tbxSearchFood
+            // 
+            this.tbxSearchFood.Location = new System.Drawing.Point(14, 17);
+            this.tbxSearchFood.Name = "tbxSearchFood";
+            this.tbxSearchFood.Size = new System.Drawing.Size(230, 28);
+            this.tbxSearchFood.TabIndex = 0;
+            // 
+            // btnSearchFood
+            // 
+            this.btnSearchFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFood.Location = new System.Drawing.Point(250, 16);
+            this.btnSearchFood.Name = "btnSearchFood";
+            this.btnSearchFood.Size = new System.Drawing.Size(59, 30);
+            this.btnSearchFood.TabIndex = 4;
+            this.btnSearchFood.Text = "Tìm";
+            this.btnSearchFood.UseVisualStyleBackColor = true;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -180,9 +303,15 @@
             this.Text = "fAdmin";
             this.tcAdmin.ResumeLayout(false);
             this.tpBill.ResumeLayout(false);
+            this.tpFood.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvFood)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -201,5 +330,16 @@
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.DateTimePicker dtpkTo;
         private System.Windows.Forms.DateTimePicker dtpkFrom;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnSearchFood;
+        private System.Windows.Forms.TextBox tbxSearchFood;
+        private System.Windows.Forms.DataGridView dtgvFood;
+        private System.Windows.Forms.Button btnViewFood;
+        private System.Windows.Forms.Button btnEditFood;
+        private System.Windows.Forms.Button btnDeleteFood;
+        private System.Windows.Forms.Button btnAddFood;
     }
 }
