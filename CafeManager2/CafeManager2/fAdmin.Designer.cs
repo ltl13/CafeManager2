@@ -246,18 +246,18 @@
             // 
             // dtpkFrom
             // 
-            this.dtpkFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpkFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpkFrom.Location = new System.Drawing.Point(15, 11);
             this.dtpkFrom.Name = "dtpkFrom";
-            this.dtpkFrom.Size = new System.Drawing.Size(290, 27);
+            this.dtpkFrom.Size = new System.Drawing.Size(290, 24);
             this.dtpkFrom.TabIndex = 0;
             // 
             // dtpkTo
             // 
-            this.dtpkTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpkTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpkTo.Location = new System.Drawing.Point(311, 11);
             this.dtpkTo.Name = "dtpkTo";
-            this.dtpkTo.Size = new System.Drawing.Size(290, 27);
+            this.dtpkTo.Size = new System.Drawing.Size(290, 24);
             this.dtpkTo.TabIndex = 1;
             // 
             // btnView
