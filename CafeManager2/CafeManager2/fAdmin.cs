@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CafeManager2.DAO;
 
 namespace CafeManager2
 {
@@ -20,16 +21,9 @@ namespace CafeManager2
         }
         void LoadAccountList()
         {
-            string str = @"Data Source=.\SQLEXPRESS;Initial Catalog=CafeManager;Integrated Security=True";
-            SqlConnection connection = new SqlConnection(str);
-            connection.Open();
             string query = "SELECT * FROM dbo.Account";
-            SqlCommand command = new SqlCommand(query, connection);
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable data = new DataTable();
-            adapter.Fill(data);
-            connection.Close();
-            dtgvUser.DataSource = data;
+            DataProvider provider = new DataProvider();
+            dtgvUser.DataSource = provider.ExcuteQuery(query);
         }
     }
 }
