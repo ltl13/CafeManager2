@@ -94,4 +94,10 @@ VALUES
 )
 GO
 
-SELECT * FROM dbo.Account
+CREATE PROC USP_GetAccountByUserName
+@userName nvarchar(100)
+AS
+BEGIN
+	SELECT * FROM dbo.Account WHERE	UserName = @userName
+END
+GO
