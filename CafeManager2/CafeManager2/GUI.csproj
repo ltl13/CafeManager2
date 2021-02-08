@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CafeManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CafeManager.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CafeManagerDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +105,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="CafeManager.xsc">
+      <DependentUpon>CafeManager.xsd</DependentUpon>
+    </None>
+    <None Include="CafeManager.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CafeManager.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CafeManager.xss">
+      <DependentUpon>CafeManager.xsd</DependentUpon>
+    </None>
     <None Include="CafeManagerDataSet.xsc">
       <DependentUpon>CafeManagerDataSet.xsd</DependentUpon>
     </None>
