@@ -10,6 +10,12 @@ namespace CafeManager2.DAO
 {
     public class DataProvider
     {
+        private static DataProvider instance;
+        public static DataProvider Instance 
+        {
+            get { if (instance == null) { instance = new DataProvider(); } return instance; }
+            private set { DataProvider.instance = value; }
+        }
         private string str = @"Data Source=.\SQLEXPRESS;Initial Catalog=CafeManager;Integrated Security=True";
         public DataTable ExcuteQuery(string query, object[] parameter = null)
         {

@@ -23,7 +23,7 @@ namespace CafeManager2
         {
             string query = "SELECT * FROM dbo.Account";
             DataProvider provider = new DataProvider();
-            dtgvUser.DataSource = provider.ExcuteQuery(query);
+            dtgvUser.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
     }
 }
