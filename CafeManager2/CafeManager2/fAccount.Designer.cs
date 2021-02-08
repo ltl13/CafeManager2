@@ -160,6 +160,7 @@
             this.Controls.Add(this.tbxUsername);
             this.Controls.Add(this.lbUsername);
             this.Name = "fAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAccount";
             this.ResumeLayout(false);
             this.PerformLayout();
