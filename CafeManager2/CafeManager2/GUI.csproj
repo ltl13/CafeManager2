@@ -51,6 +51,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CafeManagerDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="fAccount.cs">
       <SubType>Form</SubType>
