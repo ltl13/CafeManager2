@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CafeManagerDataSet.Designer.cs">
+    <Compile Include="CafeManager.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CafeManagerDataSet.xsd</DependentUpon>
+      <DependentUpon>CafeManager.xsd</DependentUpon>
     </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
@@ -100,16 +100,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="CafeManagerDataSet.xsc">
-      <DependentUpon>CafeManagerDataSet.xsd</DependentUpon>
+    <None Include="CafeManager.xsc">
+      <DependentUpon>CafeManager.xsd</DependentUpon>
     </None>
-    <None Include="CafeManagerDataSet.xsd">
+    <None Include="CafeManager.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CafeManagerDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>CafeManager.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="CafeManagerDataSet.xss">
-      <DependentUpon>CafeManagerDataSet.xsd</DependentUpon>
+    <None Include="CafeManager.xss">
+      <DependentUpon>CafeManager.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
