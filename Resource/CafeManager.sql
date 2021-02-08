@@ -101,3 +101,11 @@ BEGIN
 	SELECT * FROM dbo.Account WHERE	UserName = @userName
 END
 GO
+
+CREATE PROC USP_Login
+@userName nvarchar(100), @passWord nvarchar(100)
+AS
+BEGIN
+	SELECT * FROM dbo.Account WHERE UserName = @userName AND PassWord = @passWord
+END
+GO
