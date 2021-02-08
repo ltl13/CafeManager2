@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CafeManager2.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,10 +20,23 @@ namespace CafeManager2
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            fMain newForm = new fMain();
-            this.Hide();
-            newForm.ShowDialog();
-            this.Show();
+            string userName = tbxUsername.Text;
+            string passWord = tbxPassword.Text;
+            if (Login(userName, passWord))
+            {
+                fMain main = new fMain();
+                this.Hide();
+                main.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+            }
+        }
+        private bool Login(string userName, string passWord)
+        {
+            return AccountDAO.Instance.Login(userName, passWord);
         }
     }
 }

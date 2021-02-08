@@ -50,6 +50,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(156, 27);
             this.tbxPassword.TabIndex = 1;
+            this.tbxPassword.UseSystemPasswordChar = true;
             // 
             // lbUsername
             // 

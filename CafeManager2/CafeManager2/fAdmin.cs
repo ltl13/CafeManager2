@@ -17,22 +17,6 @@ namespace CafeManager2
         public fAdmin()
         {
             InitializeComponent();
-            LoadData();
-        }
-        void LoadData()
-        {
-            LoadAccountList();
-            LoadFoodList();
-        }
-        void LoadFoodList()
-        {
-            string query = "select * from dbo.Food";
-            dtgvFood.DataSource = DataProvider.Instance.ExcuteQuery(query);
-        }
-        void LoadAccountList()
-        {
-            string query = "SELECT * FROM dbo.Account";
-            dtgvUser.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
     }
 }
