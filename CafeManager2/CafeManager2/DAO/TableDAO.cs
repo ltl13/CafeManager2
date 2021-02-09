@@ -11,12 +11,17 @@ namespace CafeManager2.DAO
     public class TableDAO
     {
         private static TableDAO instance;
-
+        private static int tableWidth = 90;
+        private static int tableHeight = 50;
         public static TableDAO Instance 
         {
             get { if (instance == null) instance = new TableDAO(); return TableDAO.instance; }
             private set { TableDAO.instance = value; }
         }
+
+        public static int TableWidth { get => tableWidth; set => tableWidth = value; }
+        public static int TableHeight { get => tableHeight; set => tableHeight = value; }
+
         private TableDAO() { }
         public List<Table> LoadTableList()
         {

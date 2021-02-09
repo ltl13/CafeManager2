@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CafeManager2.DAO;
+using CafeManager2.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +17,27 @@ namespace CafeManager2
         public fMain()
         {
             InitializeComponent();
+            LoadTable();
         }
 
         #region Method
         void LoadTable()
         {
-
+            List<Table> listTable = TableDAO.Instance.LoadTableList();
+            foreach (Table item in listTable)
+            {
+                Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
+                btn.Text = item.Name + "\n" + item.Status;
+                switch (item.Status)
+                {
+                    case "Trống":
+                        btn.BackColor = Color.LightGreen;
+                        break;
+                    default:
+                        btn.BackColor = Color.LightPink;
+                        break;
+                }
+            }
         }
         #endregion
 
