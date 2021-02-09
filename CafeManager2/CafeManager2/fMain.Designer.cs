@@ -97,6 +97,7 @@
             // 
             // fpnlTable
             // 
+            this.fpnlTable.AutoScroll = true;
             this.fpnlTable.Dock = System.Windows.Forms.DockStyle.Left;
             this.fpnlTable.Location = new System.Drawing.Point(0, 28);
             this.fpnlTable.Name = "fpnlTable";

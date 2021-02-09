@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CafeManager2.DAO;
+using CafeManager2.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +17,31 @@ namespace CafeManager2
         public fMain()
         {
             InitializeComponent();
+            LoadTable();
         }
 
+        #region Method
+        void LoadTable()
+        {
+            List<Table> listTable = TableDAO.Instance.LoadTableList();
+            foreach (Table item in listTable)
+            {
+                Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
+                btn.Text = item.Name + "\n" + item.Status;
+                switch (item.Status)
+                {
+                    case "Trống":
+                        btn.BackColor = Color.LightGreen;
+                        break;
+                    default:
+                        btn.BackColor = Color.LightPink;
+                        break;
+                }
+            }
+        }
+        #endregion
+
+        #region Events
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAccount fAcc = new fAccount();
@@ -33,5 +58,6 @@ namespace CafeManager2
             fAdmin fAd = new fAdmin();
             fAd.ShowDialog();
         }
+        #endregion
     }
 }
