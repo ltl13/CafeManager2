@@ -37,6 +37,7 @@ namespace CafeManager2
                         btn.BackColor = Color.LightPink;
                         break;
                 }
+                fpnlTable.Controls.Add(btn);
             }
         }
         #endregion
