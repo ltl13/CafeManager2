@@ -17,6 +17,14 @@ namespace CafeManager2
             InitializeComponent();
         }
 
+        #region Method
+        void LoadTable()
+        {
+
+        }
+        #endregion
+
+        #region Events
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAccount fAcc = new fAccount();
@@ -33,5 +41,6 @@ namespace CafeManager2
             fAdmin fAd = new fAdmin();
             fAd.ShowDialog();
         }
+        #endregion
     }
 }
