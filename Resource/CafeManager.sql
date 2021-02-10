@@ -122,12 +122,14 @@ CREATE PROC USP_GetTableList
 AS SELECT * FROM dbo.TableFood
 GO
 --Thêm Cagetory
+--delete from dbo.FoodCategory
 INSERT INTO dbo.FoodCategory (name) VALUES (N'Cafe')
 INSERT INTO dbo.FoodCategory (name) VALUES (N'Sinh tố')
 INSERT INTO dbo.FoodCategory (name) VALUES (N'Nước ép')
 INSERT INTO dbo.FoodCategory (name) VALUES (N'Nước ngọt')
 INSERT INTO dbo.FoodCategory (name) VALUES (N'Cooktail')
 --Thêm Food
+--delete from dbo.Food
 INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Capuchino', 1, 35000)
 INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Latte', 1, 35000)
 INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Macchiato', 1, 40000)
@@ -149,3 +151,4 @@ INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Whiskey Sour', 5, 65000
 INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Dry Martini', 5, 75000)
 
 SELECT * FROM dbo.FoodCategory
+select * from dbo.Food
