@@ -47,6 +47,10 @@
             this.cbCagetory = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lsvBill = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -63,14 +67,14 @@
             this.accountToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 26);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -80,7 +84,7 @@
             this.informationToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // informationToolStripMenuItem
@@ -101,9 +105,9 @@
             // 
             this.fpnlTable.AutoScroll = true;
             this.fpnlTable.Dock = System.Windows.Forms.DockStyle.Left;
-            this.fpnlTable.Location = new System.Drawing.Point(0, 30);
+            this.fpnlTable.Location = new System.Drawing.Point(0, 28);
             this.fpnlTable.Name = "fpnlTable";
-            this.fpnlTable.Size = new System.Drawing.Size(437, 420);
+            this.fpnlTable.Size = new System.Drawing.Size(437, 422);
             this.fpnlTable.TabIndex = 1;
             // 
             // panel1
@@ -171,7 +175,7 @@
             this.pnlAddFood.Controls.Add(this.cbFood);
             this.pnlAddFood.Controls.Add(this.cbCagetory);
             this.pnlAddFood.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlAddFood.Location = new System.Drawing.Point(437, 30);
+            this.pnlAddFood.Location = new System.Drawing.Point(437, 28);
             this.pnlAddFood.Name = "pnlAddFood";
             this.pnlAddFood.Size = new System.Drawing.Size(363, 68);
             this.pnlAddFood.TabIndex = 3;
@@ -227,22 +231,46 @@
             // 
             this.panel3.Controls.Add(this.lsvBill);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(437, 98);
+            this.panel3.Location = new System.Drawing.Point(437, 96);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(363, 291);
+            this.panel3.Size = new System.Drawing.Size(363, 293);
             this.panel3.TabIndex = 4;
             // 
             // lsvBill
             // 
+            this.lsvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.lsvBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(0, 0);
             this.lsvBill.Name = "lsvBill";
-            this.lsvBill.Size = new System.Drawing.Size(363, 291);
+            this.lsvBill.Size = new System.Drawing.Size(363, 293);
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
-            this.lsvBill.View = System.Windows.Forms.View.List;
+            this.lsvBill.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Tên";
+            this.columnHeader1.Width = 149;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Số lượng";
+            this.columnHeader2.Width = 66;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Đơn giá";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Thành tiền";
+            this.columnHeader4.Width = 81;
             // 
             // fMain
             // 
@@ -291,5 +319,9 @@
         private System.Windows.Forms.ComboBox cbSwitchTable;
         private System.Windows.Forms.Button btnSwitchTable;
         private System.Windows.Forms.ListView lsvBill;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

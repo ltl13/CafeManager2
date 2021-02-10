@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Menu = CafeManager2.DTO.Menu;
 
 namespace CafeManager2
 {
@@ -44,14 +45,23 @@ namespace CafeManager2
         }
         void ShowBill(int id)
         {
-
+            lsvBill.Items.Clear();
+            List<Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
+            foreach(Menu item in listBillInfo)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
+                lsvItem.SubItems.Add(item.Count.ToString());
+                lsvItem.SubItems.Add(item.Price.ToString());
+                lsvItem.SubItems.Add(item.TotalPrice.ToString());
+                lsvBill.Items.Add(lsvItem);
+            }
         }
         #endregion
 
         #region Events
         private void btn_Click(object sender, EventArgs e)
         {
-            int tableID = (sender as Table).ID;
+            int tableID = ((sender as Button).Tag as Table).ID;
             ShowBill(tableID);
         }
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)
