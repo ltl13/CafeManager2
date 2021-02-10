@@ -149,6 +149,18 @@ INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Old Fashioned', 5, 6000
 INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Negroni', 5, 60000)
 INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Whiskey Sour', 5, 65000)
 INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Dry Martini', 5, 75000)
+--Thêm bill
+INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status) VALUES (GETDATE(), NULL, 1, 0)
+INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status) VALUES (GETDATE(), NULl, 2, 0)
+INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status) VALUES (GETDATE(), GETDATE(), 2, 1)
+--Thêm bill info
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 2, 1)
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (2, 7, 1)
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 1, 1)
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (2, 9, 1)
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 4, 1)
 
 SELECT * FROM dbo.FoodCategory
 select * from dbo.Food
+
+update TableFood set status = 'Có người' where id between 1 and 4
