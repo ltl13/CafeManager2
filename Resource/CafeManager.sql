@@ -121,3 +121,31 @@ GO
 CREATE PROC USP_GetTableList
 AS SELECT * FROM dbo.TableFood
 GO
+--Thêm Cagetory
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Cafe')
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Sinh tố')
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Nước ép')
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Nước ngọt')
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Cooktail')
+--Thêm Food
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Capuchino', 1, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Latte', 1, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Macchiato', 1, 40000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Espresso', 1, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sinh tố dâu', 2, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sinh tố bơ', 2, 40000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sinh tố mãng cầu', 2, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sinh tố xoài', 2, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Nước ép táo', 3, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Nước ép dứa', 3, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Nước ép cà chua', 3, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Coke', 4, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Pepsi', 4, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Redbull', 4, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sting', 4, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Old Fashioned', 5, 60000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Negroni', 5, 60000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Whiskey Sour', 5, 65000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Dry Martini', 5, 75000)
+
+SELECT * FROM dbo.FoodCategory
