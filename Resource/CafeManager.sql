@@ -162,5 +162,3 @@ INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 4, 1)
 
 SELECT * FROM dbo.FoodCategory
 select * from dbo.Food
-
-update TableFood set status = 'Có người' where id between 1 and 4
