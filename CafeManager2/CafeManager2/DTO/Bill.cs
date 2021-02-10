@@ -25,7 +25,9 @@ namespace CafeManager2.DTO
         {
             this.ID = (int)row["id"];
             this.DateCheckIn = (DateTime?)row["dateCheckIn"];
-            this.DateCheckOut = (DateTime?)row["dateCheckOut"];
+            var dateCheckOutTemp = row["dateCheckOut"];
+            if (dateCheckOutTemp.ToString() != "")
+                this.DateCheckOut = (DateTime?)dateCheckOutTemp;
             this.Status = (int)row["status"];
         }
         public int ID { get => iD; set => iD = value; }

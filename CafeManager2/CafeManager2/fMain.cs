@@ -44,14 +44,21 @@ namespace CafeManager2
         }
         void ShowBill(int id)
         {
-
+            lsvBill.Items.Clear();
+            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIDByTableID(id));
+            foreach(BillInfo item in listBillInfo)
+            {
+                ListViewItem lsvItem = new ListViewItem(item.FoodID.ToString());
+                lsvItem.SubItems.Add(item.Count.ToString());
+                lsvBill.Items.Add(lsvItem);
+            }
         }
         #endregion
 
         #region Events
         private void btn_Click(object sender, EventArgs e)
         {
-            int tableID = (sender as Table).ID;
+            int tableID = ((sender as Button).Tag as Table).ID;
             ShowBill(tableID);
         }
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)

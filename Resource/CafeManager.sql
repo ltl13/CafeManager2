@@ -166,3 +166,10 @@ AS
 BEGIN
 	SELECT * FROM dbo.Bill WHERE idTable = @tableID AND status = 0
 END
+
+CREATE PROC USP_GetListBillInfo
+@idBill INT
+AS
+BEGIN
+	SELECT * FROM dbo.BillInfo WHERE idBill = @idBill;
+END
