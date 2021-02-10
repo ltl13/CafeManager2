@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CafeManager2.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -19,7 +20,13 @@ namespace CafeManager2.DAO
         private BillDAO() { }
         public int GetUncheckBillIDByTableID()
         {
-            DataTable data = DataProvider.Instance.ExcuteQuery("");
+            DataTable data = DataProvider.Instance.ExcuteQuery("USP_GetUncheckBillByTableID");
+            if (data.Rows.Count > 0)
+            {
+                Bill bill = new Bill(data.Rows[0]);
+                return bill.ID;
+            }
+            return -1;
         }
     }
 }
