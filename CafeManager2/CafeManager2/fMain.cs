@@ -28,6 +28,8 @@ namespace CafeManager2
             {
                 Button btn = new Button() { Width = TableDAO.TableWidth, Height = TableDAO.TableHeight };
                 btn.Text = item.Name + "\n" + item.Status;
+                btn.Click += btn_Click;
+                btn.Tag = item;
                 switch (item.Status)
                 {
                     case "Trống":
@@ -40,9 +42,18 @@ namespace CafeManager2
                 fpnlTable.Controls.Add(btn);
             }
         }
+        void ShowBill(int id)
+        {
+
+        }
         #endregion
 
         #region Events
+        private void btn_Click(object sender, EventArgs e)
+        {
+            int tableID = (sender as Table).ID;
+            ShowBill(tableID);
+        }
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAccount fAcc = new fAccount();

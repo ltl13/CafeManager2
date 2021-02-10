@@ -160,5 +160,9 @@ INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 1, 1)
 INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (2, 9, 1)
 INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 4, 1)
 
-SELECT * FROM dbo.FoodCategory
-select * from dbo.Food
+CREATE PROC USP_GetUncheckBillByTableID
+@tableID INT
+AS
+BEGIN
+	SELECT * FROM dbo.Bill WHERE idTable = @tableID AND status = 0
+END
