@@ -173,3 +173,11 @@ AS
 BEGIN
 	SELECT * FROM dbo.BillInfo WHERE idBill = @idBill;
 END
+
+CREATE PROC USP_GetListMenuByTable
+@tableID INT
+AS
+BEGIN
+	SELECT f.name, bi.count, f.price, f.price*bi.count AS totalPrice FROM dbo.BillInfo bi, dbo.Bill b, dbo.Food f
+	WHERE bi.idBill = b.id AND bi.idFood = f.id AND b.idTable = @tableID
+END
