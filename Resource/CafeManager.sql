@@ -121,3 +121,44 @@ GO
 CREATE PROC USP_GetTableList
 AS SELECT * FROM dbo.TableFood
 GO
+--Thêm Cagetory
+--delete from dbo.FoodCategory
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Cafe')
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Sinh tố')
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Nước ép')
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Nước ngọt')
+INSERT INTO dbo.FoodCategory (name) VALUES (N'Cooktail')
+--Thêm Food
+--delete from dbo.Food
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Capuchino', 1, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Latte', 1, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Macchiato', 1, 40000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Espresso', 1, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sinh tố dâu', 2, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sinh tố bơ', 2, 40000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sinh tố mãng cầu', 2, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sinh tố xoài', 2, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Nước ép táo', 3, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Nước ép dứa', 3, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Nước ép cà chua', 3, 35000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Coke', 4, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Pepsi', 4, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Redbull', 4, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Sting', 4, 25000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Old Fashioned', 5, 60000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Negroni', 5, 60000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Whiskey Sour', 5, 65000)
+INSERT INTO dbo.Food (name, idCategory, price) VALUES (N'Dry Martini', 5, 75000)
+--Thêm bill
+INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status) VALUES (GETDATE(), NULL, 1, 0)
+INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status) VALUES (GETDATE(), NULl, 2, 0)
+INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status) VALUES (GETDATE(), GETDATE(), 2, 1)
+--Thêm bill info
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 2, 1)
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (2, 7, 1)
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 1, 1)
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (2, 9, 1)
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 4, 1)
+
+SELECT * FROM dbo.FoodCategory
+select * from dbo.Food
