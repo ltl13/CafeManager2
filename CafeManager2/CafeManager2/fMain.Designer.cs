@@ -35,6 +35,7 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fpnlTable = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbxTotalPrice = new System.Windows.Forms.TextBox();
             this.cbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnSwitchTable = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -44,14 +45,13 @@
             this.btnAddFood = new System.Windows.Forms.Button();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.cbFood = new System.Windows.Forms.ComboBox();
-            this.cbCagetory = new System.Windows.Forms.ComboBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lsvBill = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tbxTotalPrice = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -125,6 +125,18 @@
             this.panel1.Size = new System.Drawing.Size(395, 61);
             this.panel1.TabIndex = 2;
             // 
+            // tbxTotalPrice
+            // 
+            this.tbxTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTotalPrice.ForeColor = System.Drawing.Color.Red;
+            this.tbxTotalPrice.Location = new System.Drawing.Point(187, 19);
+            this.tbxTotalPrice.Name = "tbxTotalPrice";
+            this.tbxTotalPrice.ReadOnly = true;
+            this.tbxTotalPrice.Size = new System.Drawing.Size(125, 24);
+            this.tbxTotalPrice.TabIndex = 9;
+            this.tbxTotalPrice.Text = "0";
+            this.tbxTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // cbSwitchTable
             // 
             this.cbSwitchTable.FormattingEnabled = true;
@@ -175,7 +187,7 @@
             this.pnlAddFood.Controls.Add(this.btnAddFood);
             this.pnlAddFood.Controls.Add(this.nudAmount);
             this.pnlAddFood.Controls.Add(this.cbFood);
-            this.pnlAddFood.Controls.Add(this.cbCagetory);
+            this.pnlAddFood.Controls.Add(this.cbCategory);
             this.pnlAddFood.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAddFood.Location = new System.Drawing.Point(437, 28);
             this.pnlAddFood.Name = "pnlAddFood";
@@ -220,14 +232,15 @@
             this.cbFood.Size = new System.Drawing.Size(221, 28);
             this.cbFood.TabIndex = 1;
             // 
-            // cbCagetory
+            // cbCategory
             // 
-            this.cbCagetory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCagetory.FormattingEnabled = true;
-            this.cbCagetory.Location = new System.Drawing.Point(0, 0);
-            this.cbCagetory.Name = "cbCagetory";
-            this.cbCagetory.Size = new System.Drawing.Size(221, 28);
-            this.cbCagetory.TabIndex = 0;
+            this.cbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(0, 0);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(221, 28);
+            this.cbCategory.TabIndex = 0;
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -275,18 +288,6 @@
             this.columnHeader4.Text = "Thành tiền";
             this.columnHeader4.Width = 93;
             // 
-            // tbxTotalPrice
-            // 
-            this.tbxTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTotalPrice.ForeColor = System.Drawing.Color.Red;
-            this.tbxTotalPrice.Location = new System.Drawing.Point(187, 19);
-            this.tbxTotalPrice.Name = "tbxTotalPrice";
-            this.tbxTotalPrice.ReadOnly = true;
-            this.tbxTotalPrice.Size = new System.Drawing.Size(125, 24);
-            this.tbxTotalPrice.TabIndex = 9;
-            this.tbxTotalPrice.Text = "0";
-            this.tbxTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -327,7 +328,7 @@
         private System.Windows.Forms.Button btnAddFood;
         private System.Windows.Forms.NumericUpDown nudAmount;
         private System.Windows.Forms.ComboBox cbFood;
-        private System.Windows.Forms.ComboBox cbCagetory;
+        private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
