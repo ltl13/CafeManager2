@@ -25,11 +25,15 @@ namespace CafeManager2
         #region Method
         void LoadCagetory()
         {
-
+            List<Category> listCagetory = CategoryDAO.Instance.GetListCagetory();
+            cbCategory.DataSource = listCagetory;
+            cbCategory.DisplayMember = "Name";
         }
         void LoadFoodListByCagetoryID(int id)
         {
-
+            List<Food> listFood = FoodDAO.Instance.GetFoodByCagetoryID(id);
+            cbFood.DataSource = listFood;
+            cbFood.DisplayMember = "Name";
         }
         void LoadTable()
         {
@@ -96,9 +100,13 @@ namespace CafeManager2
         }
         #endregion
 
-        private void cbCagetory_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = 0;
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedItem == null) return;
+            Category selected = cb.SelectedItem as Category;
+            id = selected.ID;
             LoadFoodListByCagetoryID(id);
         }
     }

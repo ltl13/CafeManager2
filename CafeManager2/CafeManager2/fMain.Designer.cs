@@ -45,7 +45,7 @@
             this.btnAddFood = new System.Windows.Forms.Button();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.cbFood = new System.Windows.Forms.ComboBox();
-            this.cbCagetory = new System.Windows.Forms.ComboBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lsvBill = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -187,7 +187,7 @@
             this.pnlAddFood.Controls.Add(this.btnAddFood);
             this.pnlAddFood.Controls.Add(this.nudAmount);
             this.pnlAddFood.Controls.Add(this.cbFood);
-            this.pnlAddFood.Controls.Add(this.cbCagetory);
+            this.pnlAddFood.Controls.Add(this.cbCategory);
             this.pnlAddFood.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAddFood.Location = new System.Drawing.Point(437, 28);
             this.pnlAddFood.Name = "pnlAddFood";
@@ -232,15 +232,15 @@
             this.cbFood.Size = new System.Drawing.Size(221, 28);
             this.cbFood.TabIndex = 1;
             // 
-            // cbCagetory
+            // cbCategory
             // 
-            this.cbCagetory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCagetory.FormattingEnabled = true;
-            this.cbCagetory.Location = new System.Drawing.Point(0, 0);
-            this.cbCagetory.Name = "cbCagetory";
-            this.cbCagetory.Size = new System.Drawing.Size(221, 28);
-            this.cbCagetory.TabIndex = 0;
-            this.cbCagetory.SelectedIndexChanged += new System.EventHandler(this.cbCagetory_SelectedIndexChanged);
+            this.cbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(0, 0);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(221, 28);
+            this.cbCategory.TabIndex = 0;
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -328,7 +328,7 @@
         private System.Windows.Forms.Button btnAddFood;
         private System.Windows.Forms.NumericUpDown nudAmount;
         private System.Windows.Forms.ComboBox cbFood;
-        private System.Windows.Forms.ComboBox cbCagetory;
+        private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.NumericUpDown numericUpDown1;

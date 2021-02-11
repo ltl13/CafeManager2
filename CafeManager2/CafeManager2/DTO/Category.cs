@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace CafeManager2.DTO
 {
-    public class Cagetory
+    public class Category
     {
         private int iD;
         private string name;
 
-        public Cagetory(DataRow row)
+        public Category(DataRow row)
         {
             this.ID = (int)row["id"];
             this.Name = row["name"].ToString();
         }
-        public Cagetory(int id, string name)
+        public Category(int id, string name)
         {
             this.ID = id;
             this.Name = name;
