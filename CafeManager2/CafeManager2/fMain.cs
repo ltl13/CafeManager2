@@ -19,9 +19,18 @@ namespace CafeManager2
         {
             InitializeComponent();
             LoadTable();
+            LoadCagetory();
         }
 
         #region Method
+        void LoadCagetory()
+        {
+
+        }
+        void LoadFoodListByCagetoryID(int id)
+        {
+
+        }
         void LoadTable()
         {
             List<Table> listTable = TableDAO.Instance.LoadTableList();
@@ -86,5 +95,11 @@ namespace CafeManager2
             fAd.ShowDialog();
         }
         #endregion
+
+        private void cbCagetory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = 0;
+            LoadFoodListByCagetoryID(id);
+        }
     }
 }

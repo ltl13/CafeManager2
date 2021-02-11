@@ -35,6 +35,7 @@
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fpnlTable = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbxTotalPrice = new System.Windows.Forms.TextBox();
             this.cbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnSwitchTable = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -51,7 +52,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tbxTotalPrice = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -124,6 +124,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(395, 61);
             this.panel1.TabIndex = 2;
+            // 
+            // tbxTotalPrice
+            // 
+            this.tbxTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTotalPrice.ForeColor = System.Drawing.Color.Red;
+            this.tbxTotalPrice.Location = new System.Drawing.Point(187, 19);
+            this.tbxTotalPrice.Name = "tbxTotalPrice";
+            this.tbxTotalPrice.ReadOnly = true;
+            this.tbxTotalPrice.Size = new System.Drawing.Size(125, 24);
+            this.tbxTotalPrice.TabIndex = 9;
+            this.tbxTotalPrice.Text = "0";
+            this.tbxTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbSwitchTable
             // 
@@ -228,6 +240,7 @@
             this.cbCagetory.Name = "cbCagetory";
             this.cbCagetory.Size = new System.Drawing.Size(221, 28);
             this.cbCagetory.TabIndex = 0;
+            this.cbCagetory.SelectedIndexChanged += new System.EventHandler(this.cbCagetory_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -274,18 +287,6 @@
             // 
             this.columnHeader4.Text = "Thành tiền";
             this.columnHeader4.Width = 93;
-            // 
-            // tbxTotalPrice
-            // 
-            this.tbxTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTotalPrice.ForeColor = System.Drawing.Color.Red;
-            this.tbxTotalPrice.Location = new System.Drawing.Point(187, 19);
-            this.tbxTotalPrice.Name = "tbxTotalPrice";
-            this.tbxTotalPrice.ReadOnly = true;
-            this.tbxTotalPrice.Size = new System.Drawing.Size(125, 24);
-            this.tbxTotalPrice.TabIndex = 9;
-            this.tbxTotalPrice.Text = "0";
-            this.tbxTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // fMain
             // 
