@@ -47,14 +47,19 @@ namespace CafeManager2
         {
             lsvBill.Items.Clear();
             List<Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
+            float totalPrice = 0;
             foreach(Menu item in listBillInfo)
             {
                 ListViewItem lsvItem = new ListViewItem(item.FoodName.ToString());
                 lsvItem.SubItems.Add(item.Count.ToString());
                 lsvItem.SubItems.Add(item.Price.ToString());
                 lsvItem.SubItems.Add(item.TotalPrice.ToString());
+                totalPrice += item.TotalPrice;
                 lsvBill.Items.Add(lsvItem);
             }
+            //Change currency system
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
+            tbxTotalPrice.Text = totalPrice.ToString("c", culture);
         }
         #endregion
 
