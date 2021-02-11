@@ -159,6 +159,7 @@ INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (2, 7, 1)
 INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 1, 1)
 INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (2, 9, 1)
 INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (1, 4, 1)
+INSERT INTO dbo.BillInfo (idBill, idFood, count) VALUES (3, 11, 1)
 
 CREATE PROC USP_GetUncheckBillByTableID
 @tableID INT
@@ -179,5 +180,5 @@ CREATE PROC USP_GetListMenuByTable
 AS
 BEGIN
 	SELECT f.name, bi.count, f.price, f.price*bi.count AS totalPrice FROM dbo.BillInfo bi, dbo.Bill b, dbo.Food f
-	WHERE bi.idBill = b.id AND bi.idFood = f.id AND b.idTable = @tableID
+	WHERE bi.idBill = b.id AND bi.idFood = f.id AND b.idTable = @tableID AND b.status = 0
 END
