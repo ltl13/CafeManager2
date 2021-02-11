@@ -57,7 +57,9 @@ namespace CafeManager2
                 totalPrice += item.TotalPrice;
                 lsvBill.Items.Add(lsvItem);
             }
-            tbxTotalPrice.Text = totalPrice.ToString();
+            //Change currency system
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
+            tbxTotalPrice.Text = totalPrice.ToString("c", culture);
         }
         #endregion
 

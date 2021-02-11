@@ -277,12 +277,12 @@
             // 
             // tbxTotalPrice
             // 
-            this.tbxTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxTotalPrice.ForeColor = System.Drawing.Color.Red;
-            this.tbxTotalPrice.Location = new System.Drawing.Point(186, 14);
+            this.tbxTotalPrice.Location = new System.Drawing.Point(187, 19);
             this.tbxTotalPrice.Name = "tbxTotalPrice";
             this.tbxTotalPrice.ReadOnly = true;
-            this.tbxTotalPrice.Size = new System.Drawing.Size(125, 28);
+            this.tbxTotalPrice.Size = new System.Drawing.Size(125, 24);
             this.tbxTotalPrice.TabIndex = 9;
             this.tbxTotalPrice.Text = "0";
             this.tbxTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
