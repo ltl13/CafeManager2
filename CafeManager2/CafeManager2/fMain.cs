@@ -112,7 +112,13 @@ namespace CafeManager2
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
-
+            Table table = lsvBill.Tag as Table;
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            if (idBill == -1)
+            {
+                BillDAO.Instance.InsertBill(table.ID);
+                BillInfoDAO.Instance.InsertBillInfo(1, 1, 1);
+            }
         }
         #endregion
     }

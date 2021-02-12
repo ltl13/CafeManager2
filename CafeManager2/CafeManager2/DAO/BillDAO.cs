@@ -30,7 +30,7 @@ namespace CafeManager2.DAO
         }
         public void InsertBill(int id)
         {
-            DataProvider.Instance.ExcuteQuery("USP_InsertBill @idTable", new object[] { id });
+            DataProvider.Instance.ExecuteNonQuery("USP_InsertBill @idTable", new object[] { id });
         }
     }
 }
