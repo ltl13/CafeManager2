@@ -192,11 +192,25 @@ BEGIN
 END
 GO
 
-CREATE PROC USP_InsertBillInfo
+ALTER PROC USP_InsertBillInfo
 @idBill INT, @idFood INT, @count INT
 AS
 BEGIN
-	INSERT INTO dbo.BillInfo (idBill, idFood, count)
-	VALUES (@idBill, @idFood, @count)
+	DECLARE @isExistBillInfo INT = 0
+	DECLARE @foodCount INT = 1
+	SELECT @isExistBillInfo = id, @foodCount = count FROM dbo.BillInfo WHERE idBill = @idBill AND idFood = @idFood
+	IF (@isExistBillInfo > 0)
+	BEGIN
+		DECLARE @newCount INT = @foodCount + @count
+		IF (@newCount > 0)
+			UPDATE dbo.BillInfo SET count = @newCount WHERE idBill = @idBill AND idFood = @idFood
+		ELSE
+			DELETE dbo.BillInfo WHERE idBill = @idBill AND idFood = @idFood
+	END
+	ELSE
+	BEGIN
+		INSERT INTO dbo.BillInfo (idBill, idFood, count)
+		VALUES (@idBill, @idFood, @count)
+	END
 END
 GO
