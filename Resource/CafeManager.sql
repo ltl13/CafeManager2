@@ -182,3 +182,36 @@ BEGIN
 	SELECT f.name, bi.count, f.price, f.price*bi.count AS totalPrice FROM dbo.BillInfo bi, dbo.Bill b, dbo.Food f
 	WHERE bi.idBill = b.id AND bi.idFood = f.id AND b.idTable = @tableID AND b.status = 0
 END
+
+CREATE PROC USP_InsertBill
+@idTable INT
+AS
+BEGIN
+	INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status)
+	VALUES (GETDATE(), NULL, @idTable, 0)
+END
+GO
+
+ALTER PROC USP_InsertBillInfo
+@idBill INT, @idFood INT, @count INT
+AS
+BEGIN
+	DECLARE @isExistBillInfo INT = 0
+	DECLARE @foodCount INT = 1
+	SELECT @isExistBillInfo = id, @foodCount = count FROM dbo.BillInfo WHERE idBill = @idBill AND idFood = @idFood
+	IF (@isExistBillInfo > 0)
+	BEGIN
+		DECLARE @newCount INT = @foodCount + @count
+		IF (@newCount > 0)
+			UPDATE dbo.BillInfo SET count = @newCount WHERE idBill = @idBill AND idFood = @idFood
+		ELSE
+			DELETE dbo.BillInfo WHERE idBill = @idBill AND idFood = @idFood
+	END
+	ELSE
+	BEGIN
+		IF (@count > 0)
+			INSERT INTO dbo.BillInfo (idBill, idFood, count)
+			VALUES (@idBill, @idFood, @count)
+	END
+END
+GO
