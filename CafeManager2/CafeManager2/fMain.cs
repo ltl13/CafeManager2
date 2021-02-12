@@ -37,6 +37,7 @@ namespace CafeManager2
         }
         void LoadTable()
         {
+            fpnlTable.Controls.Clear();
             List<Table> listTable = TableDAO.Instance.LoadTableList();
             foreach (Table item in listTable)
             {
@@ -126,6 +127,22 @@ namespace CafeManager2
                 BillInfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
             }
             ShowBill(table.ID);
+            LoadTable();
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            Table table = lsvBill.Tag as Table;
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            if (idBill != -1)
+            {
+                if(MessageBox.Show("Bạn muốn thanh toán hóa đơn " + table.Name, "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    BillDAO.Instance.CheckOut(idBill);
+                    ShowBill(table.ID);
+                }
+            }
+            LoadTable();
         }
         #endregion
     }
