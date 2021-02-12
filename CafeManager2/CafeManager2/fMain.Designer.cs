@@ -108,7 +108,7 @@
             this.fpnlTable.Dock = System.Windows.Forms.DockStyle.Left;
             this.fpnlTable.Location = new System.Drawing.Point(0, 28);
             this.fpnlTable.Name = "fpnlTable";
-            this.fpnlTable.Size = new System.Drawing.Size(437, 422);
+            this.fpnlTable.Size = new System.Drawing.Size(437, 425);
             this.fpnlTable.TabIndex = 1;
             // 
             // panel1
@@ -120,7 +120,7 @@
             this.panel1.Controls.Add(this.btnDiscount);
             this.panel1.Controls.Add(this.btnCheckOut);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(437, 389);
+            this.panel1.Location = new System.Drawing.Point(437, 392);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(395, 61);
             this.panel1.TabIndex = 2;
@@ -181,6 +181,7 @@
             this.btnCheckOut.TabIndex = 4;
             this.btnCheckOut.Text = "Check out";
             this.btnCheckOut.UseVisualStyleBackColor = true;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
             // pnlAddFood
             // 
@@ -249,7 +250,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(437, 96);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(395, 293);
+            this.panel3.Size = new System.Drawing.Size(395, 296);
             this.panel3.TabIndex = 4;
             // 
             // lsvBill
@@ -264,7 +265,7 @@
             this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(0, 0);
             this.lsvBill.Name = "lsvBill";
-            this.lsvBill.Size = new System.Drawing.Size(395, 293);
+            this.lsvBill.Size = new System.Drawing.Size(395, 296);
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
@@ -293,13 +294,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 450);
+            this.ClientSize = new System.Drawing.Size(832, 453);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnlAddFood);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.fpnlTable);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(850, 500);
+            this.MinimumSize = new System.Drawing.Size(850, 500);
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fMain";
