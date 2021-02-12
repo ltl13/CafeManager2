@@ -203,6 +203,7 @@
             this.btnAddFood.TabIndex = 3;
             this.btnAddFood.Text = "Add";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // nudAmount
             // 

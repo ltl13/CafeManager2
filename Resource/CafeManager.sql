@@ -182,3 +182,12 @@ BEGIN
 	SELECT f.name, bi.count, f.price, f.price*bi.count AS totalPrice FROM dbo.BillInfo bi, dbo.Bill b, dbo.Food f
 	WHERE bi.idBill = b.id AND bi.idFood = f.id AND b.idTable = @tableID AND b.status = 0
 END
+
+CREATE PROC USP_InsertBill
+@idTable INT
+AS
+BEGIN
+	INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status)
+	VALUES (GETDATE(), NULL, @idTable, 0)
+END
+GO

@@ -80,6 +80,7 @@ namespace CafeManager2
         private void btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            lsvBill.Tag = (sender as Button).Tag;
             ShowBill(tableID);
         }
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,7 +99,6 @@ namespace CafeManager2
             fAdmin fAd = new fAdmin();
             fAd.ShowDialog();
         }
-        #endregion
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -109,5 +109,11 @@ namespace CafeManager2
             id = selected.ID;
             LoadFoodListByCagetoryID(id);
         }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }
