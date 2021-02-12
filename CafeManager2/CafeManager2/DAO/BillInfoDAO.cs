@@ -27,5 +27,9 @@ namespace CafeManager2.DAO
             }
             return listBillInfo;
         }
+        public void InsertBillInfo()
+        {
+
+        }
     }
 }

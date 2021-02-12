@@ -191,3 +191,12 @@ BEGIN
 	VALUES (GETDATE(), NULL, @idTable, 0)
 END
 GO
+
+CREATE PROC USP_InsertBillInfo
+@idBill INT, @idFood INT, @count INT
+AS
+BEGIN
+	INSERT INTO dbo.BillInfo (idBill, idFood, count)
+	VALUES (@idBill, @idFood, @count)
+END
+GO
