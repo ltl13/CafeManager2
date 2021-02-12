@@ -114,10 +114,16 @@ namespace CafeManager2
         {
             Table table = lsvBill.Tag as Table;
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            int idFood = (cbFood.SelectedItem as Food).ID;
+            int count = (int)nudAmount.Value;
             if (idBill == -1)
             {
                 BillDAO.Instance.InsertBill(table.ID);
-                BillInfoDAO.Instance.InsertBillInfo(1, 1, 1);
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIDBill(), idFood, count);
+            }
+            else
+            {
+                BillInfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
             }
         }
         #endregion
