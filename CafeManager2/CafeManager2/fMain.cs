@@ -125,6 +125,7 @@ namespace CafeManager2
             {
                 BillInfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
             }
+            ShowBill(table.ID);
         }
         #endregion
     }

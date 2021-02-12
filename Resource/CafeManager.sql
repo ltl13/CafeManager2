@@ -209,8 +209,9 @@ BEGIN
 	END
 	ELSE
 	BEGIN
-		INSERT INTO dbo.BillInfo (idBill, idFood, count)
-		VALUES (@idBill, @idFood, @count)
+		IF (@count > 0)
+			INSERT INTO dbo.BillInfo (idBill, idFood, count)
+			VALUES (@idBill, @idFood, @count)
 	END
 END
 GO

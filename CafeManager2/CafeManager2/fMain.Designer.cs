@@ -272,7 +272,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Tên";
-            this.columnHeader1.Width = 129;
+            this.columnHeader1.Width = 105;
             // 
             // columnHeader2
             // 
@@ -282,12 +282,12 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Đơn giá";
-            this.columnHeader3.Width = 99;
+            this.columnHeader3.Width = 71;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Thành tiền";
-            this.columnHeader4.Width = 93;
+            this.columnHeader4.Width = 75;
             // 
             // fMain
             // 
