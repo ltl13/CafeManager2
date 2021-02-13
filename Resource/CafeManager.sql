@@ -255,7 +255,9 @@ BEGIN
 	DECLARE @idBill2 INT
 	SELECT @idBill1 = id FROM dbo.Bill WHERE idTable = @idTable1 AND STATUS = 0
 	SELECT @idBill2 = id FROM dbo.Bill WHERE idTable = @idTable2 AND STATUS = 0
-	UPDATE dbo.Bill SET idTable = @idTable2 WHERE id = @idBill1
-	UPDATE dbo.Bill SET idTable = @idTable1 WHERE id = @idBill2
+	IF (@idBill1 != 0)
+		UPDATE dbo.Bill SET idTable = @idTable2 WHERE id = @idBill1
+	IF (@idBill2 != 0)
+		UPDATE dbo.Bill SET idTable = @idTable1 WHERE id = @idBill2
 END
 GO
