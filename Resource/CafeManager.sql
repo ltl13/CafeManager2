@@ -247,15 +247,27 @@ ALTER TABLE dbo.Bill
 ADD discount INT
 UPDATE dbo.Bill SET discount = 0 
 
-CREATE PROC USP_SwitchTable
+ALTER PROC USP_SwitchTable
 @idTable1 INT, @idTable2 INT
 AS
 BEGIN
-	DECLARE @idBill1 INT
-	DECLARE @idBill2 INT
+	DECLARE @idBill1 INT = 0
+	DECLARE @idBill2 INT = 0
 	SELECT @idBill1 = id FROM dbo.Bill WHERE idTable = @idTable1 AND STATUS = 0
 	SELECT @idBill2 = id FROM dbo.Bill WHERE idTable = @idTable2 AND STATUS = 0
-	UPDATE dbo.Bill SET idTable = @idTable2 WHERE id = @idBill1
-	UPDATE dbo.Bill SET idTable = @idTable1 WHERE id = @idBill2
+	IF (@idBill1 != 0)
+	BEGIN
+		UPDATE dbo.Bill SET idTable = @idTable2 WHERE id = @idBill1
+		UPDATE dbo.TableFood SET status = N'Có người' WHERE id = @idTable2
+	END
+	ELSE
+		UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable2
+	IF (@idBill2 != 0)
+	BEGIN
+		UPDATE dbo.Bill SET idTable = @idTable1 WHERE id = @idBill2
+		UPDATE dbo.TableFood SET status = N'Có người' WHERE id = @idTable1
+	END
+	ELSE
+		UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable1
 END
 GO

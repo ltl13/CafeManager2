@@ -34,5 +34,9 @@ namespace CafeManager2.DAO
             }
             return tableList;
         }
+        public void SwitchTable(int idTable1, int idTable2)
+        {
+            DataProvider.Instance.ExcuteQuery("USP_SwitchTable @idTable1 , @idTable2", new object[] { idTable1, idTable2 });
+        }
     }
 }
