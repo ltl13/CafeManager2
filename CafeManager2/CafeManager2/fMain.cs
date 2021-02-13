@@ -156,12 +156,13 @@ namespace CafeManager2
 
         private void btnSwitchTable_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show(string.Format("Bạn muốn chuyển {0} với {1}?", (lsvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).ID), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if(MessageBox.Show(string.Format("Bạn muốn chuyển {0} qua {1}?", (lsvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).Name), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 int id1 = (lsvBill.Tag as Table).ID;
                 int id2 = (cbSwitchTable.SelectedItem as Table).ID;
                 TableDAO.Instance.SwitchTable(id1, id2);
                 LoadTable();
+                ShowBill(id1);
             }
         }
         #endregion
