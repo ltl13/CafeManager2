@@ -255,19 +255,18 @@ BEGIN
 	DECLARE @idBill2 INT = 0
 	SELECT @idBill1 = id FROM dbo.Bill WHERE idTable = @idTable1 AND STATUS = 0
 	SELECT @idBill2 = id FROM dbo.Bill WHERE idTable = @idTable2 AND STATUS = 0
-	IF (@idBill1 != 0)
+	IF (@idBill1 != 0 AND @idBill1 != @idBill2 AND @idBill2 != 0)
 	BEGIN
-		UPDATE dbo.Bill SET idTable = @idTable2 WHERE id = @idBill1
+		UPDATE dbo.BillInfo SET idBill = @idBill2 WHERE idBill = @idBill1
+		DELETE FROM dbo.Bill WHERE id = @idBill1 AND status = 0
 		UPDATE dbo.TableFood SET status = N'Có người' WHERE id = @idTable2
-	END
-	ELSE
-		UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable2
-	IF (@idBill2 != 0)
-	BEGIN
-		UPDATE dbo.Bill SET idTable = @idTable1 WHERE id = @idBill2
-		UPDATE dbo.TableFood SET status = N'Có người' WHERE id = @idTable1
-	END
-	ELSE
 		UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable1
+	END
+	IF (@idBill1 != 0 AND @idBill2 = 0)
+	BEGIN
+		UPDATE dbo.Bill SET idTable =  @idTable2 WHERE id = @idBill1
+		UPDATE dbo.TableFood SET status = N'Có người' WHERE id = @idTable2
+		UPDATE dbo.TableFood SET status = N'Trống' WHERE id = @idTable1
+	END
 END
 GO
