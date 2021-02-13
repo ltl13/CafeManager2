@@ -183,12 +183,12 @@ BEGIN
 	WHERE bi.idBill = b.id AND bi.idFood = f.id AND b.idTable = @tableID AND b.status = 0
 END
 
-CREATE PROC USP_InsertBill
+ALTER PROC USP_InsertBill
 @idTable INT
 AS
 BEGIN
-	INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status)
-	VALUES (GETDATE(), NULL, @idTable, 0)
+	INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status, discount)
+	VALUES (GETDATE(), NULL, @idTable, 0, 0)
 END
 GO
 
@@ -240,5 +240,22 @@ BEGIN
 	SELECT @count = COUNT(*) FROM dbo.Bill WHERE idTable = @idTable AND status = 0
 	IF (@count = 0)
 		UPDATE dbo.TableFood SET status = N'Trống' WHERE @idTable = id
+END
+GO
+
+ALTER TABLE dbo.Bill
+ADD discount INT
+UPDATE dbo.Bill SET discount = 0 
+
+CREATE PROC USP_SwitchTable
+@idTable1 INT, @idTable2 INT
+AS
+BEGIN
+	DECLARE @idBill1 INT
+	DECLARE @idBill2 INT
+	SELECT @idBill1 = id FROM dbo.Bill WHERE idTable = @idTable1 AND STATUS = 0
+	SELECT @idBill2 = id FROM dbo.Bill WHERE idTable = @idTable2 AND STATUS = 0
+	UPDATE dbo.Bill SET idTable = @idTable2 WHERE id = @idBill1
+	UPDATE dbo.Bill SET idTable = @idTable1 WHERE id = @idBill2
 END
 GO
