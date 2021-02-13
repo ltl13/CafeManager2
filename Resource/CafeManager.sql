@@ -246,3 +246,16 @@ GO
 ALTER TABLE dbo.Bill
 ADD discount INT
 UPDATE dbo.Bill SET discount = 0 
+
+CREATE PROC USP_SwitchTable
+@idTable1 INT, @idTable2 INT
+AS
+BEGIN
+	DECLARE @idBill1 INT = 0
+	DECLARE @idBill2 INT = 0
+	SELECT @idBill1 = id FROM dbo.Bill WHERE idTable = @idTable1 AND STATUS = 0
+	SELECT @idBill2 = id FROM dbo.Bill WHERE idTable = @idTable2 AND STATUS = 0
+	UPDATE dbo.Bill SET idTable = @idTable2 WHERE id = @idBill1
+	UPDATE dbo.Bill SET idTable = @idTable1 WHERE id = @idBill2
+END
+GO
