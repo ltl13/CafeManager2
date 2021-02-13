@@ -183,12 +183,12 @@ BEGIN
 	WHERE bi.idBill = b.id AND bi.idFood = f.id AND b.idTable = @tableID AND b.status = 0
 END
 
-CREATE PROC USP_InsertBill
+ALTER PROC USP_InsertBill
 @idTable INT
 AS
 BEGIN
-	INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status)
-	VALUES (GETDATE(), NULL, @idTable, 0)
+	INSERT INTO dbo.Bill (DateCheckIn, DateCheckOut, idTable, status, discount)
+	VALUES (GETDATE(), NULL, @idTable, 0, 0)
 END
 GO
 
@@ -242,3 +242,7 @@ BEGIN
 		UPDATE dbo.TableFood SET status = N'Trống' WHERE @idTable = id
 END
 GO
+
+ALTER TABLE dbo.Bill
+ADD discount INT
+UPDATE dbo.Bill SET discount = 0 

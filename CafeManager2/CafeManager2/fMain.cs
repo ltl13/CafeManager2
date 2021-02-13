@@ -134,11 +134,14 @@ namespace CafeManager2
         {
             Table table = lsvBill.Tag as Table;
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            int discount = (int)nudDiscount.Value;
+            double totalPrice = Convert.ToDouble(tbxTotalPrice.Text.Split(',')[0]);
             if (idBill != -1)
             {
-                if(MessageBox.Show("Bạn muốn thanh toán hóa đơn " + table.Name, "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                totalPrice = totalPrice * (100 - discount) / 100;
+                if (MessageBox.Show(string.Format("Bạn muốn thanh toán hóa đơn {0} \n Tổng tiền (đã giảm {1}%): {2}", table.Name, discount, totalPrice), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill);
+                    BillDAO.Instance.CheckOut(idBill, discount);
                     ShowBill(table.ID);
                 }
             }
