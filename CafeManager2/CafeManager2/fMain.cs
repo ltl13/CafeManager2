@@ -20,6 +20,7 @@ namespace CafeManager2
             InitializeComponent();
             LoadTable();
             LoadCagetory();
+            LoadComboboxTable(cbSwitchTable);
         }
 
         #region Method
@@ -74,6 +75,11 @@ namespace CafeManager2
             //Change currency system
             System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
             tbxTotalPrice.Text = totalPrice.ToString("c", culture);
+        }
+        void LoadComboboxTable(ComboBox cb)
+        {
+            cb.DataSource = TableDAO.Instance.LoadTableList();
+            cb.DisplayMember = "Name";
         }
         #endregion
 
@@ -146,6 +152,17 @@ namespace CafeManager2
                 }
             }
             LoadTable();
+        }
+
+        private void btnSwitchTable_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show(string.Format("Bạn muốn chuyển {0} với {1}?", (lsvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).ID), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                int id1 = (lsvBill.Tag as Table).ID;
+                int id2 = (cbSwitchTable.SelectedItem as Table).ID;
+                TableDAO.Instance.SwitchTable(id1, id2);
+                LoadTable();
+            }
         }
         #endregion
     }
