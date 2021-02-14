@@ -270,3 +270,14 @@ BEGIN
 	END
 END
 GO
+
+alter proc USP_GetListBillByDate
+@checkIn date, @checkOut date
+as
+begin
+	select t.name, b.total, DateCheckIn, DateCheckOut, discount
+	from dbo.Bill as b, dbo.TableFood as t
+	where DateCheckIn >= @checkIn and DateCheckOut <= @checkOut and b.status = 1
+	and t.id = b.idTable
+end
+go

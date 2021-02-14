@@ -17,6 +17,8 @@ namespace CafeManager2
         public fAdmin()
         {
             InitializeComponent();
+            LoadDateTimePickerBill();
+            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
         }
         #region method
         void LoadDateTimePickerBill()
@@ -27,7 +29,10 @@ namespace CafeManager2
         }
         void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
         {
-
+            if (checkIn <= checkOut)
+                dtgvBill.DataSource = BillDAO.Instance.GetListBillByDate(checkIn, checkOut);
+            else
+                MessageBox.Show("Ngày không hợp lệ");
         }
         #endregion
         #region event
