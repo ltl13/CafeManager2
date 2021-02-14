@@ -270,3 +270,14 @@ BEGIN
 	END
 END
 GO
+
+alter proc USP_GetListBillByDate
+@checkIn date, @checkOut date
+as
+begin
+	select t.name as [Bàn], b.total as [Tổng tiền(VND)], DateCheckIn as [Ngày check in], DateCheckOut as [Ngày check out], discount [Giảm giá(%)]
+	from dbo.Bill as b, dbo.TableFood as t
+	where DateCheckIn >= @checkIn and DateCheckOut <= @checkOut and b.status = 1
+	and t.id = b.idTable
+end
+go

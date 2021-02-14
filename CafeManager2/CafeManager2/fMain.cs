@@ -147,7 +147,7 @@ namespace CafeManager2
                 totalPrice = totalPrice * (100 - discount) * 10;
                 if (MessageBox.Show(string.Format("Bạn muốn thanh toán hóa đơn {0} \n Tổng tiền (đã giảm {1}%): {2}", table.Name, discount, totalPrice), "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    BillDAO.Instance.CheckOut(idBill, discount);
+                    BillDAO.Instance.CheckOut(idBill, discount, (float)totalPrice);
                     ShowBill(table.ID);
                 }
             }
