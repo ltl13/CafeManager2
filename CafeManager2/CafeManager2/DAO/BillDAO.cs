@@ -40,9 +40,9 @@ namespace CafeManager2.DAO
             }
             catch { return 1; }
         }
-        public void CheckOut(int id, int discount)
+        public void CheckOut(int id, int discount, float total)
         {
-            string query = "update dbo.Bill set status = 1, DateCheckOut = getdate(), " + "discount = " + discount + " where id = " + id;
+            string query = "update dbo.Bill set status = 1, DateCheckOut = getdate(), " + "discount = " + discount + ", total = " + total + " where id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
     }

@@ -18,5 +18,24 @@ namespace CafeManager2
         {
             InitializeComponent();
         }
+        #region method
+        void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+            dtpkFrom.Value = new DateTime(today.Year, today.Month, 1);
+            dtpkTo.Value = dtpkFrom.Value.AddMonths(1).AddDays(-1);
+        }
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+
+        }
+        #endregion
+        #region event
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+        }
+        #endregion
+
     }
 }

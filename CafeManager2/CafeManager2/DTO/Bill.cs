@@ -14,14 +14,16 @@ namespace CafeManager2.DTO
         private DateTime? dateCheckOut;
         private int status;
         private int discount;
+        private float total;
 
-        public Bill(int iD, DateTime? dateCheckIn, DateTime? dateCheckOut, int status, int discount = 0)
+        public Bill(int iD, DateTime? dateCheckIn, DateTime? dateCheckOut, int status, int discount = 0, float total = 0)
         {
             this.ID = iD;
             this.DateCheckIn = dateCheckIn;
             this.DateCheckOut = dateCheckOut;
             this.Status = status;
             this.Discount = discount;
+            this.Total = total;
         }
         public Bill(DataRow row)
         {
@@ -32,11 +34,15 @@ namespace CafeManager2.DTO
                 this.DateCheckOut = (DateTime?)dateCheckOutTemp;
             this.Status = (int)row["status"];
             this.Discount = (int)row["discount"];
+            var totalTemp = row["total"];
+            if (totalTemp.ToString() != "")
+                this.Total = (float)Convert.ToDouble(totalTemp);
         }
         public int ID { get => iD; set => iD = value; }
         public DateTime? DateCheckIn { get => dateCheckIn; set => dateCheckIn = value; }
         public DateTime? DateCheckOut { get => dateCheckOut; set => dateCheckOut = value; }
         public int Status { get => status; set => status = value; }
         public int Discount { get => discount; set => discount = value; }
+        public float Total { get => total; set => total = value; }
     }
 }
