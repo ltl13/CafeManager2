@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CafeManager2.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,34 @@ namespace CafeManager2
 {
     public partial class fAccount : Form
     {
-        public fAccount()
+        private Account loginAccount;
+        #region method
+        public Account LoginAccount
         {
-            InitializeComponent();
+            get { return loginAccount; }
+            set { loginAccount = value; ChangeAccount(loginAccount); }
         }
 
+        public fAccount(Account acc)
+        {
+            InitializeComponent();
+            LoginAccount = acc;
+        }
+        void ChangeAccount(Account acc)
+        {
+            tbxUsername.Text = LoginAccount.UserName;
+            tbxName.Text = LoginAccount.DisplayName;
+        }
+        void UpdateAccount()
+        {
+
+        }
+        #endregion
+        #region event
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            UpdateAccount();
+        }
+        #endregion
     }
 }

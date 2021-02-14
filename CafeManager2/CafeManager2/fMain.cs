@@ -15,20 +15,28 @@ namespace CafeManager2
 {
     public partial class fMain : Form
     {
-        private Account account;
+        private Account loginAccount;
 
-        public Account Account { get => account; set => account = value; }
+        public Account LoginAccount { 
+            get { return loginAccount; }
+            set { loginAccount = value; ChangeAccount(loginAccount.Type); }
+        }
 
         public fMain(Account acc)
         {
             InitializeComponent();
-            this.Account = acc;
+            this.LoginAccount = acc;
             LoadTable();
             LoadCagetory();
             LoadComboboxTable(cbSwitchTable);
         }
 
         #region Method
+        void ChangeAccount(int type)
+        {
+            adminToolStripMenuItem.Enabled = type == 1;
+            accountToolStripMenuItem.Text += " (" + LoginAccount.UserName + ")";
+        }
         void LoadCagetory()
         {
             List<Category> listCagetory = CategoryDAO.Instance.GetListCagetory();
@@ -97,7 +105,7 @@ namespace CafeManager2
         }
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAccount fAcc = new fAccount();
+            fAccount fAcc = new fAccount(LoginAccount);
             fAcc.ShowDialog();
         }
 

@@ -26,7 +26,7 @@ namespace CafeManager2.DAO
         }
         public Account GetAccountByUserName(string userName)
         {
-            DataTable data =  DataProvider.Instance.ExcuteQuery("select * from account where userName = " + userName);
+            DataTable data =  DataProvider.Instance.ExcuteQuery("select * from account where userName = '" + userName + "'");
             foreach (DataRow item in data.Rows)
             {
                 return new Account(item);
