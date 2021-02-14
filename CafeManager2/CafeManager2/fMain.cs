@@ -15,9 +15,14 @@ namespace CafeManager2
 {
     public partial class fMain : Form
     {
-        public fMain()
+        private Account account;
+
+        public Account Account { get => account; set => account = value; }
+
+        public fMain(Account acc)
         {
             InitializeComponent();
+            this.Account = acc;
             LoadTable();
             LoadCagetory();
             LoadComboboxTable(cbSwitchTable);
