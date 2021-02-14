@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CafeManager2.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -22,6 +23,15 @@ namespace CafeManager2.DAO
             string query = "USP_Login @userName , @passWord";
             DataTable result = DataProvider.Instance.ExcuteQuery(query, new object[] { userName, passWord });
             return result.Rows.Count > 0;
+        }
+        public Account GetAccountByUserName(string userName)
+        {
+            DataTable data =  DataProvider.Instance.ExcuteQuery("select * from account where userName = " + userName);
+            foreach (DataRow item in data.Rows)
+            {
+                return new Account(item);
+            }
+            return null;
         }
     }
 }

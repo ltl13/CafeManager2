@@ -1,4 +1,5 @@
 ﻿using CafeManager2.DAO;
+using CafeManager2.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,8 @@ namespace CafeManager2
             string passWord = tbxPassword.Text;
             if (Login(userName, passWord))
             {
-                fMain main = new fMain();
+                Account account = AccountDAO.Instance.GetAccountByUserName(userName);
+                fMain main = new fMain(account);
                 this.Hide();
                 main.ShowDialog();
                 this.Show();
