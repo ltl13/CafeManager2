@@ -17,10 +17,15 @@ namespace CafeManager2
         public fAdmin()
         {
             InitializeComponent();
-            LoadDateTimePickerBill();
-            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            LoadData();
         }
         #region method
+        void LoadData()
+        {
+            LoadDateTimePickerBill();
+            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            LoadListFood();
+        }
         void LoadDateTimePickerBill()
         {
             DateTime today = DateTime.Now;
@@ -34,13 +39,21 @@ namespace CafeManager2
             else
                 MessageBox.Show("Ngày không hợp lệ");
         }
+        void LoadListFood()
+        {
+            dtgvFood.DataSource = FoodDAO.Instance.GetListFood();
+        }
         #endregion
         #region event
         private void btnView_Click(object sender, EventArgs e)
         {
             LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
         }
-        #endregion
 
+        private void btnViewFood_Click(object sender, EventArgs e)
+        {
+            LoadListFood();
+        }
+        #endregion
     }
 }
