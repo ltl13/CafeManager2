@@ -85,6 +85,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(210, 30);
             this.tbxPassword.TabIndex = 5;
+            this.tbxPassword.UseSystemPasswordChar = true;
             // 
             // lbPassword
             // 
@@ -103,6 +104,7 @@
             this.tbxNewPassword.Name = "tbxNewPassword";
             this.tbxNewPassword.Size = new System.Drawing.Size(210, 30);
             this.tbxNewPassword.TabIndex = 7;
+            this.tbxNewPassword.UseSystemPasswordChar = true;
             // 
             // lbNewPassword
             // 
@@ -121,6 +123,7 @@
             this.tbxEnterAgain.Name = "tbxEnterAgain";
             this.tbxEnterAgain.Size = new System.Drawing.Size(210, 30);
             this.tbxEnterAgain.TabIndex = 11;
+            this.tbxEnterAgain.UseSystemPasswordChar = true;
             // 
             // lbEnterAgain
             // 

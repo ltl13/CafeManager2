@@ -35,7 +35,7 @@ namespace CafeManager2
         void ChangeAccount(int type)
         {
             adminToolStripMenuItem.Enabled = type == 1;
-            accountToolStripMenuItem.Text += " (" + LoginAccount.UserName + ")";
+            accountToolStripMenuItem.Text += " (" + LoginAccount.DisplayName + ")";
         }
         void LoadCagetory()
         {
@@ -106,9 +106,13 @@ namespace CafeManager2
         private void informationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAccount fAcc = new fAccount(LoginAccount);
+            fAcc.eUpdateAccount += fAcc_UpdateAccount;
             fAcc.ShowDialog();
         }
-
+        void fAcc_UpdateAccount(object sender, EventAccount e)
+        {
+            accountToolStripMenuItem.Text = "Account (" + e.Acc.DisplayName + ")";
+        }
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
