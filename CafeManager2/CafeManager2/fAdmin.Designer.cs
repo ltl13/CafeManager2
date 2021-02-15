@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -39,9 +39,7 @@
             this.dtpkFrom = new System.Windows.Forms.DateTimePicker();
             this.tpFood = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.tbxFoodPrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbxFoodCagetory = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxFoodName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -104,6 +102,8 @@
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.cbFoodCategory = new System.Windows.Forms.ComboBox();
+            this.nudFoodPrice = new System.Windows.Forms.NumericUpDown();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -131,6 +131,7 @@
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).BeginInit();
             this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFoodPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -174,14 +175,14 @@
             this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.BackgroundColor = System.Drawing.Color.White;
             this.dtgvBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvBill.GridColor = System.Drawing.SystemColors.ActiveBorder;
@@ -246,9 +247,9 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.tbxFoodPrice);
+            this.panel6.Controls.Add(this.nudFoodPrice);
+            this.panel6.Controls.Add(this.cbFoodCategory);
             this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.tbxFoodCagetory);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.tbxFoodName);
             this.panel6.Controls.Add(this.label2);
@@ -259,13 +260,6 @@
             this.panel6.Size = new System.Drawing.Size(317, 435);
             this.panel6.TabIndex = 3;
             // 
-            // tbxFoodPrice
-            // 
-            this.tbxFoodPrice.Location = new System.Drawing.Point(107, 141);
-            this.tbxFoodPrice.Name = "tbxFoodPrice";
-            this.tbxFoodPrice.Size = new System.Drawing.Size(201, 28);
-            this.tbxFoodPrice.TabIndex = 7;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -274,13 +268,6 @@
             this.label4.Size = new System.Drawing.Size(38, 24);
             this.label4.TabIndex = 6;
             this.label4.Text = "Giá";
-            // 
-            // tbxFoodCagetory
-            // 
-            this.tbxFoodCagetory.Location = new System.Drawing.Point(107, 97);
-            this.tbxFoodCagetory.Name = "tbxFoodCagetory";
-            this.tbxFoodCagetory.Size = new System.Drawing.Size(201, 28);
-            this.tbxFoodCagetory.TabIndex = 5;
             // 
             // label3
             // 
@@ -314,6 +301,7 @@
             this.tbxFoodID.ReadOnly = true;
             this.tbxFoodID.Size = new System.Drawing.Size(201, 28);
             this.tbxFoodID.TabIndex = 1;
+            this.tbxFoodID.TextChanged += new System.EventHandler(this.tbxFoodID_TextChanged);
             // 
             // label1
             // 
@@ -364,6 +352,7 @@
             this.dtgvFood.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvFood.Location = new System.Drawing.Point(0, 0);
             this.dtgvFood.Name = "dtgvFood";
+            this.dtgvFood.RowHeadersVisible = false;
             this.dtgvFood.RowHeadersWidth = 51;
             this.dtgvFood.RowTemplate.Height = 24;
             this.dtgvFood.Size = new System.Drawing.Size(400, 435);
@@ -389,6 +378,7 @@
             this.btnViewFood.TabIndex = 3;
             this.btnViewFood.Text = "Xem";
             this.btnViewFood.UseVisualStyleBackColor = true;
+            this.btnViewFood.Click += new System.EventHandler(this.btnViewFood_Click);
             // 
             // btnEditFood
             // 
@@ -876,6 +866,26 @@
             this.btnAddUser.Text = "Thêm";
             this.btnAddUser.UseVisualStyleBackColor = true;
             // 
+            // cbFoodCategory
+            // 
+            this.cbFoodCategory.FormattingEnabled = true;
+            this.cbFoodCategory.Location = new System.Drawing.Point(107, 94);
+            this.cbFoodCategory.Name = "cbFoodCategory";
+            this.cbFoodCategory.Size = new System.Drawing.Size(201, 30);
+            this.cbFoodCategory.TabIndex = 8;
+            // 
+            // nudFoodPrice
+            // 
+            this.nudFoodPrice.Location = new System.Drawing.Point(107, 139);
+            this.nudFoodPrice.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.nudFoodPrice.Name = "nudFoodPrice";
+            this.nudFoodPrice.Size = new System.Drawing.Size(201, 28);
+            this.nudFoodPrice.TabIndex = 9;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -918,6 +928,7 @@
             this.panel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).EndInit();
             this.panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudFoodPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -937,9 +948,7 @@
         private System.Windows.Forms.DateTimePicker dtpkTo;
         private System.Windows.Forms.DateTimePicker dtpkFrom;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox tbxFoodPrice;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbxFoodCagetory;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxFoodName;
         private System.Windows.Forms.Label label2;
@@ -999,5 +1008,7 @@
         private System.Windows.Forms.Button btnEditUser;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.NumericUpDown nudFoodPrice;
+        private System.Windows.Forms.ComboBox cbFoodCategory;
     }
 }
