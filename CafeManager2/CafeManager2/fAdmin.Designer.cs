@@ -39,9 +39,7 @@
             this.dtpkFrom = new System.Windows.Forms.DateTimePicker();
             this.tpFood = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.tbxFoodPrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbxFoodCagetory = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxFoodName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -104,6 +102,8 @@
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.cbFoodCategory = new System.Windows.Forms.ComboBox();
+            this.nudFoodPrice = new System.Windows.Forms.NumericUpDown();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -131,6 +131,7 @@
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).BeginInit();
             this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFoodPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -246,9 +247,9 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.tbxFoodPrice);
+            this.panel6.Controls.Add(this.nudFoodPrice);
+            this.panel6.Controls.Add(this.cbFoodCategory);
             this.panel6.Controls.Add(this.label4);
-            this.panel6.Controls.Add(this.tbxFoodCagetory);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.tbxFoodName);
             this.panel6.Controls.Add(this.label2);
@@ -259,13 +260,6 @@
             this.panel6.Size = new System.Drawing.Size(317, 435);
             this.panel6.TabIndex = 3;
             // 
-            // tbxFoodPrice
-            // 
-            this.tbxFoodPrice.Location = new System.Drawing.Point(107, 141);
-            this.tbxFoodPrice.Name = "tbxFoodPrice";
-            this.tbxFoodPrice.Size = new System.Drawing.Size(201, 28);
-            this.tbxFoodPrice.TabIndex = 7;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -274,13 +268,6 @@
             this.label4.Size = new System.Drawing.Size(38, 24);
             this.label4.TabIndex = 6;
             this.label4.Text = "Giá";
-            // 
-            // tbxFoodCagetory
-            // 
-            this.tbxFoodCagetory.Location = new System.Drawing.Point(107, 97);
-            this.tbxFoodCagetory.Name = "tbxFoodCagetory";
-            this.tbxFoodCagetory.Size = new System.Drawing.Size(201, 28);
-            this.tbxFoodCagetory.TabIndex = 5;
             // 
             // label3
             // 
@@ -314,6 +301,7 @@
             this.tbxFoodID.ReadOnly = true;
             this.tbxFoodID.Size = new System.Drawing.Size(201, 28);
             this.tbxFoodID.TabIndex = 1;
+            this.tbxFoodID.TextChanged += new System.EventHandler(this.tbxFoodID_TextChanged);
             // 
             // label1
             // 
@@ -878,6 +866,26 @@
             this.btnAddUser.Text = "Thêm";
             this.btnAddUser.UseVisualStyleBackColor = true;
             // 
+            // cbFoodCategory
+            // 
+            this.cbFoodCategory.FormattingEnabled = true;
+            this.cbFoodCategory.Location = new System.Drawing.Point(107, 94);
+            this.cbFoodCategory.Name = "cbFoodCategory";
+            this.cbFoodCategory.Size = new System.Drawing.Size(201, 30);
+            this.cbFoodCategory.TabIndex = 8;
+            // 
+            // nudFoodPrice
+            // 
+            this.nudFoodPrice.Location = new System.Drawing.Point(107, 139);
+            this.nudFoodPrice.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.nudFoodPrice.Name = "nudFoodPrice";
+            this.nudFoodPrice.Size = new System.Drawing.Size(201, 28);
+            this.nudFoodPrice.TabIndex = 9;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -920,6 +928,7 @@
             this.panel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).EndInit();
             this.panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudFoodPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -939,9 +948,7 @@
         private System.Windows.Forms.DateTimePicker dtpkTo;
         private System.Windows.Forms.DateTimePicker dtpkFrom;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox tbxFoodPrice;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbxFoodCagetory;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxFoodName;
         private System.Windows.Forms.Label label2;
@@ -1001,5 +1008,7 @@
         private System.Windows.Forms.Button btnEditUser;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.NumericUpDown nudFoodPrice;
+        private System.Windows.Forms.ComboBox cbFoodCategory;
     }
 }
