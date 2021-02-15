@@ -25,6 +25,7 @@ namespace CafeManager2
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
             LoadListFood();
+            AddFoodBinding();
         }
         void LoadDateTimePickerBill()
         {
@@ -42,6 +43,10 @@ namespace CafeManager2
         void LoadListFood()
         {
             dtgvFood.DataSource = FoodDAO.Instance.GetListFood();
+        }
+        void AddFoodBinding()
+        {
+
         }
         #endregion
         #region event
