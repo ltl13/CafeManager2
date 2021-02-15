@@ -1,4 +1,5 @@
-﻿using CafeManager2.DTO;
+﻿using CafeManager2.DAO;
+using CafeManager2.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,7 +34,27 @@ namespace CafeManager2
         }
         void UpdateAccount()
         {
-
+            string displayName = tbxName.Text;
+            string password = tbxPassword.Text;
+            string newPassword = tbxNewPassword.Text;
+            string reenterPassword = tbxEnterAgain.Text;
+            string userName = tbxUsername.Text;
+            if (!newPassword.Equals(reenterPassword))
+            {
+                MessageBox.Show("Vui lòng nhập lại mật khẩu đúng với mật khẩu mới");
+            }
+            else
+            {
+                if (AccountDAO.Instance.UpdateAccount(userName, displayName, password, newPassword))
+                {
+                    MessageBox.Show("Cập nhật thành công");
+                    if (updateAccount != null)
+                    {
+                        updateAccount(this, new EventAccount(AccountDAO.Instance.GetAccountByUserName(userName)));
+                    }
+                }
+                else { MessageBox.Show("Cập nhật thất bại, vui lòng kiểm tra lại thông tin"); }
+            }
         }
         #endregion
         #region event
@@ -41,6 +62,19 @@ namespace CafeManager2
         {
             UpdateAccount();
         }
+        private event EventHandler<EventAccount> updateAccount;
+        public event EventHandler<EventAccount> eUpdateAccount
+        {
+            add { updateAccount += value; }
+            remove { updateAccount -= value; }
+        }
         #endregion
+    }
+    public class EventAccount : EventArgs
+    {
+        private Account acc;
+
+        public EventAccount(Account account) { this.Acc = account; }
+        public Account Acc { get => acc; set => acc = value; }
     }
 }

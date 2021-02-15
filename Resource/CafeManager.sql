@@ -281,3 +281,21 @@ begin
 	and t.id = b.idTable
 end
 go
+
+create proc USP_UpdateAccount
+@userName nvarchar(100), @displayName nvarchar(100), @password nvarchar(100), @newPassword nvarchar(100)
+as
+begin
+	declare @isRightPass int
+	select @isRightPass = count(*) from dbo.Account where UserName = @userName and PassWord = @password
+	if (@isRightPass = 1)
+	begin
+		if (@newPassword = null or @newPassword = '')
+		begin
+			update dbo.Account set DisplayName = @displayName where UserName = @userName
+		end
+		else
+			update dbo.Account set DisplayName = @displayName, PassWord = @newPassword where UserName = @userName
+	end
+end
+go
