@@ -16,6 +16,7 @@ namespace CafeManager2
     public partial class fAdmin : Form
     {
         BindingSource foodList = new BindingSource();
+        BindingSource accountList = new BindingSource();
         public fAdmin()
         {
             InitializeComponent();
@@ -31,11 +32,24 @@ namespace CafeManager2
         void LoadData()
         {
             dtgvFood.DataSource = foodList;
+            dtgvUser.DataSource = accountList;
             LoadDateTimePickerBill();
             LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
             LoadListFood();
             AddFoodBinding();
             LoadCategoryIntoCombobox(cbFoodCategory);
+            LoadAccount();
+            AddAccountBinding();
+        }
+        void AddAccountBinding()
+        {
+            tbxUsername.DataBindings.Add("Text", dtgvUser.DataSource, "UserName", true, DataSourceUpdateMode.Never);
+            tbxUserDisplayName.DataBindings.Add("Text", dtgvUser.DataSource, "DisplayName", true, DataSourceUpdateMode.Never);
+            tbxAccoutType.DataBindings.Add("Text", dtgvUser.DataSource, "Type", true, DataSourceUpdateMode.Never);
+        }
+        void LoadAccount()
+        {
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
         void LoadDateTimePickerBill()
         {
@@ -161,11 +175,16 @@ namespace CafeManager2
             add { updateFood += value; }
             remove { updateFood -= value; }
         }
-        #endregion
 
         private void btnSearchFood_Click(object sender, EventArgs e)
         {
             foodList.DataSource =  SearchFoodByName(tbxSearchFood.Text);
+        }
+        #endregion
+
+        private void btnViewUser_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
         }
     }
 }
