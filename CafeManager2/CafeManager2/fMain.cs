@@ -133,10 +133,14 @@ namespace CafeManager2
         private void fAd_UpdateFood(object sender, EventArgs e)
         {
             LoadFoodListByCagetoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
         }
         private void fAd_DeleteFood(object sender, EventArgs e)
         {
             LoadFoodListByCagetoryID((cbCategory.SelectedItem as Category).ID);
+            if (lsvBill.Tag != null)
+                ShowBill((lsvBill.Tag as Table).ID);
             LoadTable();
         }
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,6 +156,11 @@ namespace CafeManager2
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             Table table = lsvBill.Tag as Table;
+            if (table == null)
+            {
+                MessageBox.Show("Chưa chọn bàn");
+                return;
+            }
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
             int idFood = (cbFood.SelectedItem as Food).ID;
             int count = (int)nudAmount.Value;
