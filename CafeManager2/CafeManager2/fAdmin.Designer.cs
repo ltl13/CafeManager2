@@ -103,7 +103,7 @@
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.tbxAccoutType = new System.Windows.Forms.TextBox();
+            this.nudAccountType = new System.Windows.Forms.NumericUpDown();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -132,6 +132,7 @@
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).BeginInit();
             this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAccountType)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -722,7 +723,7 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.tbxAccoutType);
+            this.panel13.Controls.Add(this.nudAccountType);
             this.panel13.Controls.Add(this.btnResetPassword);
             this.panel13.Controls.Add(this.label11);
             this.panel13.Controls.Add(this.tbxUserDisplayName);
@@ -864,6 +865,7 @@
             this.btnEditUser.TabIndex = 2;
             this.btnEditUser.Text = "Sửa";
             this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // btnDeleteUser
             // 
@@ -874,6 +876,7 @@
             this.btnDeleteUser.TabIndex = 1;
             this.btnDeleteUser.Text = "Xóa";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // btnAddUser
             // 
@@ -884,13 +887,20 @@
             this.btnAddUser.TabIndex = 0;
             this.btnAddUser.Text = "Thêm";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
-            // tbxAccoutType
+            // nudAccountType
             // 
-            this.tbxAccoutType.Location = new System.Drawing.Point(131, 94);
-            this.tbxAccoutType.Name = "tbxAccoutType";
-            this.tbxAccoutType.Size = new System.Drawing.Size(178, 28);
-            this.tbxAccoutType.TabIndex = 7;
+            this.nudAccountType.Location = new System.Drawing.Point(130, 95);
+            this.nudAccountType.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudAccountType.Name = "nudAccountType";
+            this.nudAccountType.Size = new System.Drawing.Size(55, 28);
+            this.nudAccountType.TabIndex = 7;
+            this.nudAccountType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // fAdmin
             // 
@@ -935,6 +945,7 @@
             this.panel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).EndInit();
             this.panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudAccountType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1015,6 +1026,6 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.NumericUpDown nudFoodPrice;
         private System.Windows.Forms.ComboBox cbFoodCategory;
-        private System.Windows.Forms.TextBox tbxAccoutType;
+        private System.Windows.Forms.NumericUpDown nudAccountType;
     }
 }

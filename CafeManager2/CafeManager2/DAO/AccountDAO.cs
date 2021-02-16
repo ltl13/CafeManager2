@@ -42,5 +42,23 @@ namespace CafeManager2.DAO
         {
             return DataProvider.Instance.ExcuteQuery("select UserName, DisplayName, Type from dbo.Account");
         }
+        public bool InsertAccount(string userName, string displayName, int type)
+        {
+            string query = string.Format("insert dbo.Account (UserName, DisplayName, Type) values (N'{0}', {1}, {2})", userName, displayName, type);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+        public bool UpdateAccount(string userName, string displayName, int type)
+        {
+            string query = string.Format("update dbo.Account set DisplayName = {0}, Type = {1} where UserName = {2}", displayName, type, userName);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+        public bool DeleteAccount(string userName)
+        {            
+            string query = string.Format("delete dbo.Account where UserName = {0}", userName);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
     }
 }

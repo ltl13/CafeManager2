@@ -79,8 +79,45 @@ namespace CafeManager2
             cb.DataSource = CategoryDAO.Instance.GetListCagetory();
             cb.DisplayMember = "Name";
         }
+        void InsertAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Thêm tài khoản thành công");
+            }
+            else { MessageBox.Show("Thêm tài khoản thất bại, vui lòng kiểm tra lại thông tin"); }
+            LoadAccount();
+        }
+        void UpdateAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Cập nhật thông tin tài khoản thành công");
+            }
+            else { MessageBox.Show("Cập nhật thông tin tài khoản thất bại, vui lòng kiểm tra lại thông tin"); }
+        }
         #endregion
         #region event
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            string userName = tbxUsername.Text;
+            string displayName = tbxUserDisplayName.Text;
+            int type = Convert.ToInt32(tbxAccoutType.Text);
+            InsertAccount(userName, displayName, type);
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            string userName = tbxUsername.Text;
+            string displayName = tbxUserDisplayName.Text;
+            int type = Convert.ToInt32(tbxAccoutType.Text);
+            UpdateAccount(userName, displayName, type);
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+
+        }
         private void btnView_Click(object sender, EventArgs e)
         {
             LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
@@ -180,11 +217,12 @@ namespace CafeManager2
         {
             foodList.DataSource =  SearchFoodByName(tbxSearchFood.Text);
         }
-        #endregion
 
         private void btnViewUser_Click(object sender, EventArgs e)
         {
             LoadAccount();
         }
+        #endregion
+        
     }
 }
