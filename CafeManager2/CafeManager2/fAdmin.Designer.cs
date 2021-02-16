@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -39,6 +39,8 @@
             this.dtpkFrom = new System.Windows.Forms.DateTimePicker();
             this.tpFood = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.nudFoodPrice = new System.Windows.Forms.NumericUpDown();
+            this.cbFoodCategory = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxFoodName = new System.Windows.Forms.TextBox();
@@ -102,8 +104,6 @@
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.cbFoodCategory = new System.Windows.Forms.ComboBox();
-            this.nudFoodPrice = new System.Windows.Forms.NumericUpDown();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -111,6 +111,7 @@
             this.panel1.SuspendLayout();
             this.tpFood.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFoodPrice)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvFood)).BeginInit();
@@ -131,7 +132,6 @@
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).BeginInit();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFoodPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -175,14 +175,14 @@
             this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.BackgroundColor = System.Drawing.Color.White;
             this.dtgvBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvBill.GridColor = System.Drawing.SystemColors.ActiveBorder;
@@ -259,6 +259,26 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(317, 435);
             this.panel6.TabIndex = 3;
+            // 
+            // nudFoodPrice
+            // 
+            this.nudFoodPrice.Location = new System.Drawing.Point(107, 139);
+            this.nudFoodPrice.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.nudFoodPrice.Name = "nudFoodPrice";
+            this.nudFoodPrice.Size = new System.Drawing.Size(201, 28);
+            this.nudFoodPrice.TabIndex = 9;
+            // 
+            // cbFoodCategory
+            // 
+            this.cbFoodCategory.FormattingEnabled = true;
+            this.cbFoodCategory.Location = new System.Drawing.Point(107, 94);
+            this.cbFoodCategory.Name = "cbFoodCategory";
+            this.cbFoodCategory.Size = new System.Drawing.Size(201, 30);
+            this.cbFoodCategory.TabIndex = 8;
             // 
             // label4
             // 
@@ -389,6 +409,7 @@
             this.btnEditFood.TabIndex = 2;
             this.btnEditFood.Text = "Sửa";
             this.btnEditFood.UseVisualStyleBackColor = true;
+            this.btnEditFood.Click += new System.EventHandler(this.btnEditFood_Click);
             // 
             // btnDeleteFood
             // 
@@ -399,6 +420,7 @@
             this.btnDeleteFood.TabIndex = 1;
             this.btnDeleteFood.Text = "Xóa";
             this.btnDeleteFood.UseVisualStyleBackColor = true;
+            this.btnDeleteFood.Click += new System.EventHandler(this.btnDeleteFood_Click);
             // 
             // btnAddFood
             // 
@@ -409,6 +431,7 @@
             this.btnAddFood.TabIndex = 0;
             this.btnAddFood.Text = "Thêm";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // tpFoodCagetory
             // 
@@ -866,26 +889,6 @@
             this.btnAddUser.Text = "Thêm";
             this.btnAddUser.UseVisualStyleBackColor = true;
             // 
-            // cbFoodCategory
-            // 
-            this.cbFoodCategory.FormattingEnabled = true;
-            this.cbFoodCategory.Location = new System.Drawing.Point(107, 94);
-            this.cbFoodCategory.Name = "cbFoodCategory";
-            this.cbFoodCategory.Size = new System.Drawing.Size(201, 30);
-            this.cbFoodCategory.TabIndex = 8;
-            // 
-            // nudFoodPrice
-            // 
-            this.nudFoodPrice.Location = new System.Drawing.Point(107, 139);
-            this.nudFoodPrice.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.nudFoodPrice.Name = "nudFoodPrice";
-            this.nudFoodPrice.Size = new System.Drawing.Size(201, 28);
-            this.nudFoodPrice.TabIndex = 9;
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -903,6 +906,7 @@
             this.tpFood.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFoodPrice)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -928,7 +932,6 @@
             this.panel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).EndInit();
             this.panel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudFoodPrice)).EndInit();
             this.ResumeLayout(false);
 
         }

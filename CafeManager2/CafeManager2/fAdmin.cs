@@ -50,9 +50,9 @@ namespace CafeManager2
         }
         void AddFoodBinding()
         {
-            tbxFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name"));
-            tbxFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "id"));
-            nudFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "price"));
+            tbxFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            tbxFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "id", true, DataSourceUpdateMode.Never));
+            nudFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "price", true, DataSourceUpdateMode.Never));
         }
         void LoadCategoryIntoCombobox(ComboBox cb)
         {
@@ -88,6 +88,68 @@ namespace CafeManager2
                     i++;
                 }
             }            
+        }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            string name = tbxFoodName.Text;
+            int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
+            float price = (float)nudFoodPrice.Value;
+            if (FoodDAO.Instance.InsertFood(name, categoryID, price))
+            {
+                MessageBox.Show("Thêm món thành công");
+                LoadListFood();
+                if (insertFood != null)
+                    insertFood(this, new EventArgs());
+            }
+            else { MessageBox.Show("Thêm món lỗi, vui lòng kiểm tra lại thông tin"); }
+        }
+
+        private void btnEditFood_Click(object sender, EventArgs e)
+        {
+            string name = tbxFoodName.Text;
+            int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
+            float price = (float)nudFoodPrice.Value;
+            int id = Convert.ToInt32(tbxFoodID.Text);
+            if (FoodDAO.Instance.UpdateFood(id, name, categoryID, price))
+            {
+                MessageBox.Show("Sửa món thành công");
+                LoadListFood();
+                if (updateFood != null)
+                    updateFood(this, new EventArgs());
+            }
+            else { MessageBox.Show("Sửa món lỗi, vui lòng kiểm tra lại thông tin"); }
+        }
+
+        private void btnDeleteFood_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(tbxFoodID.Text);
+            if (FoodDAO.Instance.DeleteFood(id))
+            {
+                MessageBox.Show("Xóa món thành công");
+                LoadListFood();
+                if (deleteFood != null)
+                    deleteFood(this, new EventArgs());
+            }
+            else { MessageBox.Show("Xóa món lỗi, vui lòng thử lại sau"); }
+        }
+        private event EventHandler insertFood;
+        public event EventHandler InsertFood
+        {
+            add { insertFood += value; }
+            remove { insertFood -= value; }
+        }
+        private event EventHandler deleteFood;
+        public event EventHandler DeleteFood
+        {
+            add { deleteFood += value; }
+            remove { deleteFood -= value; }
+        }
+        private event EventHandler updateFood;
+        public event EventHandler UpdateFood
+        {
+            add { updateFood += value; }
+            remove { updateFood -= value; }
         }
         #endregion
     }

@@ -31,5 +31,9 @@ namespace CafeManager2.DAO
         {
             DataProvider.Instance.ExecuteNonQuery("USP_InsertBillInfo @idBill , @idFood , @count", new object[] { idBill, idFood, count });
         }
+        public void DeleteBillInfoByFoodID(int idFood)
+        {
+            DataProvider.Instance.ExcuteQuery("delete dbo.BillInfo where idFood = " + idFood);
+        }
     }
 }
