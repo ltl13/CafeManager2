@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -88,7 +88,6 @@
             this.tpAccount = new System.Windows.Forms.TabPage();
             this.panel13 = new System.Windows.Forms.Panel();
             this.btnResetPassword = new System.Windows.Forms.Button();
-            this.cbxUserType = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tbxUserDisplayName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -104,6 +103,7 @@
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
+            this.tbxAccoutType = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -175,14 +175,14 @@
             this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.BackgroundColor = System.Drawing.Color.White;
             this.dtgvBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvBill.GridColor = System.Drawing.SystemColors.ActiveBorder;
@@ -350,6 +350,7 @@
             this.btnSearchFood.TabIndex = 4;
             this.btnSearchFood.Text = "Tìm";
             this.btnSearchFood.UseVisualStyleBackColor = true;
+            this.btnSearchFood.Click += new System.EventHandler(this.btnSearchFood_Click);
             // 
             // tbxSearchFood
             // 
@@ -721,8 +722,8 @@
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.tbxAccoutType);
             this.panel13.Controls.Add(this.btnResetPassword);
-            this.panel13.Controls.Add(this.cbxUserType);
             this.panel13.Controls.Add(this.label11);
             this.panel13.Controls.Add(this.tbxUserDisplayName);
             this.panel13.Controls.Add(this.label12);
@@ -742,14 +743,6 @@
             this.btnResetPassword.TabIndex = 6;
             this.btnResetPassword.Text = "Đặt lại mật khẩu";
             this.btnResetPassword.UseVisualStyleBackColor = true;
-            // 
-            // cbxUserType
-            // 
-            this.cbxUserType.FormattingEnabled = true;
-            this.cbxUserType.Location = new System.Drawing.Point(130, 97);
-            this.cbxUserType.Name = "cbxUserType";
-            this.cbxUserType.Size = new System.Drawing.Size(178, 30);
-            this.cbxUserType.TabIndex = 5;
             // 
             // label11
             // 
@@ -829,10 +822,12 @@
             // 
             // dtgvUser
             // 
+            this.dtgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvUser.Location = new System.Drawing.Point(0, 0);
             this.dtgvUser.Name = "dtgvUser";
+            this.dtgvUser.RowHeadersVisible = false;
             this.dtgvUser.RowHeadersWidth = 51;
             this.dtgvUser.RowTemplate.Height = 24;
             this.dtgvUser.Size = new System.Drawing.Size(400, 435);
@@ -858,6 +853,7 @@
             this.btnViewUser.TabIndex = 3;
             this.btnViewUser.Text = "Xem";
             this.btnViewUser.UseVisualStyleBackColor = true;
+            this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
             // 
             // btnEditUser
             // 
@@ -888,6 +884,13 @@
             this.btnAddUser.TabIndex = 0;
             this.btnAddUser.Text = "Thêm";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            // 
+            // tbxAccoutType
+            // 
+            this.tbxAccoutType.Location = new System.Drawing.Point(131, 94);
+            this.tbxAccoutType.Name = "tbxAccoutType";
+            this.tbxAccoutType.Size = new System.Drawing.Size(178, 28);
+            this.tbxAccoutType.TabIndex = 7;
             // 
             // fAdmin
             // 
@@ -995,7 +998,6 @@
         private System.Windows.Forms.Button btnAddTable;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Button btnResetPassword;
-        private System.Windows.Forms.ComboBox cbxUserType;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbxUserDisplayName;
         private System.Windows.Forms.Label label12;
@@ -1013,5 +1015,6 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.NumericUpDown nudFoodPrice;
         private System.Windows.Forms.ComboBox cbFoodCategory;
+        private System.Windows.Forms.TextBox tbxAccoutType;
     }
 }
