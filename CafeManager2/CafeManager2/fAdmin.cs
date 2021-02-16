@@ -22,6 +22,12 @@ namespace CafeManager2
             LoadData();
         }
         #region method
+        List<Food> SearchFoodByName(string name)
+        {
+            List<Food> listFood = new List<Food>();
+            listFood = FoodDAO.Instance.SearchFoodByName(name);
+            return listFood;
+        }
         void LoadData()
         {
             dtgvFood.DataSource = foodList;
@@ -73,21 +79,25 @@ namespace CafeManager2
 
         private void tbxFoodID_TextChanged(object sender, EventArgs e)
         {
-            if (dtgvFood.SelectedCells.Count > 0)
+            try
             {
-                int id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
-                Category category = CategoryDAO.Instance.GetCategoryByID(id);
-                int i = 0;
-                foreach (Category item in cbFoodCategory.Items)
+                if (dtgvFood.SelectedCells.Count > 0)
                 {
-                    if (item.ID == category.ID)
+                    int id = (int)dtgvFood.SelectedCells[0].OwningRow.Cells["CategoryID"].Value;
+                    Category category = CategoryDAO.Instance.GetCategoryByID(id);
+                    int i = 0;
+                    foreach (Category item in cbFoodCategory.Items)
                     {
-                        cbFoodCategory.SelectedIndex = i;                        
-                        break;                       
+                        if (item.ID == category.ID)
+                        {
+                            cbFoodCategory.SelectedIndex = i;
+                            break;
+                        }
+                        i++;
                     }
-                    i++;
                 }
-            }            
+            }
+            catch { }
         }
 
         private void btnAddFood_Click(object sender, EventArgs e)
@@ -152,5 +162,10 @@ namespace CafeManager2
             remove { updateFood -= value; }
         }
         #endregion
+
+        private void btnSearchFood_Click(object sender, EventArgs e)
+        {
+            foodList.DataSource =  SearchFoodByName(tbxSearchFood.Text);
+        }
     }
 }
