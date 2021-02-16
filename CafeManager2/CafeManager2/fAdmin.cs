@@ -17,6 +17,7 @@ namespace CafeManager2
     {
         BindingSource foodList = new BindingSource();
         BindingSource accountList = new BindingSource();
+        public Account loginAccount;
         public fAdmin()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace CafeManager2
         {
             tbxUsername.DataBindings.Add("Text", dtgvUser.DataSource, "UserName", true, DataSourceUpdateMode.Never);
             tbxUserDisplayName.DataBindings.Add("Text", dtgvUser.DataSource, "DisplayName", true, DataSourceUpdateMode.Never);
-            tbxAccoutType.DataBindings.Add("Text", dtgvUser.DataSource, "Type", true, DataSourceUpdateMode.Never);
+            nudAccountType.DataBindings.Add("Value", dtgvUser.DataSource, "Type", true, DataSourceUpdateMode.Never);
         }
         void LoadAccount()
         {
@@ -79,8 +80,77 @@ namespace CafeManager2
             cb.DataSource = CategoryDAO.Instance.GetListCagetory();
             cb.DisplayMember = "Name";
         }
+        void InsertAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Thêm tài khoản thành công");
+            }
+            else { MessageBox.Show("Thêm tài khoản thất bại"); }
+            LoadAccount();
+        }
+        void UpdateAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Cập nhật thông tin tài khoản thành công");
+            }
+            else { MessageBox.Show("Cập nhật thông tin tài khoản thất bại"); }
+            LoadAccount();
+        }
+        void DeleteAccount(string userName)
+        {
+            if (loginAccount.UserName.Equals(userName))
+            {
+                MessageBox.Show("Không thể xóa tài khoản đang đăng nhập");
+                return;
+            }
+            else
+            {
+                if (AccountDAO.Instance.DeleteAccount(userName))
+                {
+                    MessageBox.Show("Xóa tài khoản thành công");
+                }
+                else { MessageBox.Show("Xóa tài khoản thất bại"); }
+                LoadAccount();
+            }
+        }
+        void ResetPassword(string userName)
+        {
+            if (AccountDAO.Instance.ResetPassword(userName))
+            {
+                MessageBox.Show("Reset password tài khoản thành công");
+            }
+            else { MessageBox.Show("Reset password tài khoản thất bại"); }
+        }
         #endregion
         #region event
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            string userName = tbxUsername.Text;
+            ResetPassword(userName);
+        }
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            string userName = tbxUsername.Text;
+            string displayName = tbxUserDisplayName.Text;
+            int type = Convert.ToInt32(nudAccountType.Value);
+            InsertAccount(userName, displayName, type);
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            string userName = tbxUsername.Text;
+            DeleteAccount(userName);
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            string userName = tbxUsername.Text;
+            string displayName = tbxUserDisplayName.Text;
+            int type = Convert.ToInt32(nudAccountType.Value);
+            UpdateAccount(userName, displayName, type);
+        }
         private void btnView_Click(object sender, EventArgs e)
         {
             LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
@@ -180,11 +250,12 @@ namespace CafeManager2
         {
             foodList.DataSource =  SearchFoodByName(tbxSearchFood.Text);
         }
-        #endregion
 
         private void btnViewUser_Click(object sender, EventArgs e)
         {
             LoadAccount();
         }
+        #endregion
+        
     }
 }
