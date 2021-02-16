@@ -121,6 +121,7 @@ namespace CafeManager2
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin fAd = new fAdmin();
+            fAd.loginAccount = LoginAccount;
             fAd.InsertFood += fAd_InsertFood;
             fAd.UpdateFood += fAd_UpdateFood;
             fAd.DeleteFood += fAd_DeleteFood;

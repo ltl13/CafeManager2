@@ -17,6 +17,7 @@ namespace CafeManager2
     {
         BindingSource foodList = new BindingSource();
         BindingSource accountList = new BindingSource();
+        public Account loginAccount;
         public fAdmin()
         {
             InitializeComponent();
@@ -85,7 +86,7 @@ namespace CafeManager2
             {
                 MessageBox.Show("Thêm tài khoản thành công");
             }
-            else { MessageBox.Show("Thêm tài khoản thất bại, vui lòng kiểm tra lại thông tin"); }
+            else { MessageBox.Show("Thêm tài khoản thất bại"); }
             LoadAccount();
         }
         void UpdateAccount(string userName, string displayName, int type)
@@ -94,29 +95,61 @@ namespace CafeManager2
             {
                 MessageBox.Show("Cập nhật thông tin tài khoản thành công");
             }
-            else { MessageBox.Show("Cập nhật thông tin tài khoản thất bại, vui lòng kiểm tra lại thông tin"); }
+            else { MessageBox.Show("Cập nhật thông tin tài khoản thất bại"); }
+            LoadAccount();
+        }
+        void DeleteAccount(string userName)
+        {
+            if (loginAccount.UserName.Equals(userName))
+            {
+                MessageBox.Show("Không thể xóa tài khoản đang đăng nhập");
+                return;
+            }
+            else
+            {
+                if (AccountDAO.Instance.DeleteAccount(userName))
+                {
+                    MessageBox.Show("Xóa tài khoản thành công");
+                }
+                else { MessageBox.Show("Xóa tài khoản thất bại"); }
+                LoadAccount();
+            }
+        }
+        void ResetPassword(string userName)
+        {
+            if (AccountDAO.Instance.ResetPassword(userName))
+            {
+                MessageBox.Show("Reset password tài khoản thành công");
+            }
+            else { MessageBox.Show("Reset password tài khoản thất bại"); }
         }
         #endregion
         #region event
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            string userName = tbxUsername.Text;
+            ResetPassword(userName);
+        }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             string userName = tbxUsername.Text;
             string displayName = tbxUserDisplayName.Text;
-            int type = Convert.ToInt32(nudAccountType.Text);
+            int type = Convert.ToInt32(nudAccountType.Value);
             InsertAccount(userName, displayName, type);
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
             string userName = tbxUsername.Text;
-            string displayName = tbxUserDisplayName.Text;
-            int type = Convert.ToInt32(nudAccountType.Text);
-            UpdateAccount(userName, displayName, type);
+            DeleteAccount(userName);
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-
+            string userName = tbxUsername.Text;
+            string displayName = tbxUserDisplayName.Text;
+            int type = Convert.ToInt32(nudAccountType.Value);
+            UpdateAccount(userName, displayName, type);
         }
         private void btnView_Click(object sender, EventArgs e)
         {
