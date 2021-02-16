@@ -38,5 +38,9 @@ namespace CafeManager2.DAO
             int result = DataProvider.Instance.ExecuteNonQuery("USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[] { userName, displayName, pass, newPass });
             return result > 0;
         }
+        public DataTable GetListAccount()
+        {
+            return DataProvider.Instance.ExcuteQuery("select UserName, DisplayName, Type from dbo.Account");
+        }
     }
 }
