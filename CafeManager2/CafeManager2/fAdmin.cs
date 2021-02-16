@@ -105,7 +105,16 @@ namespace CafeManager2
 
         private void btnEditFood_Click(object sender, EventArgs e)
         {
-
+            string name = tbxFoodName.Text;
+            int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
+            float price = (float)nudFoodPrice.Value;
+            int id = Convert.ToInt32(tbxFoodID.Text);
+            if (FoodDAO.Instance.UpdateFood(id, name, categoryID, price))
+            {
+                MessageBox.Show("Sửa món thành công");
+                LoadListFood();
+            }
+            else { MessageBox.Show("Sửa món lỗi, vui lòng kiểm tra lại thông tin"); }
         }
         #endregion
     }
