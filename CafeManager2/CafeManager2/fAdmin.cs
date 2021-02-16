@@ -116,6 +116,17 @@ namespace CafeManager2
             }
             else { MessageBox.Show("Sửa món lỗi, vui lòng kiểm tra lại thông tin"); }
         }
+
+        private void btnDeleteFood_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(tbxFoodID.Text);
+            if (FoodDAO.Instance.DeleteFood(id))
+            {
+                MessageBox.Show("Xóa món thành công");
+                LoadListFood();
+            }
+            else { MessageBox.Show("Xóa món lỗi, vui lòng thử lại sau"); }
+        }
         #endregion
     }
 }

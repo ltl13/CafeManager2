@@ -53,5 +53,12 @@ namespace CafeManager2.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+        public bool DeleteFood(int id)
+        {
+            BillInfoDAO.Instance.DeleteBillInfoByFoodID(id);
+            string query = string.Format("delete dbo.Food where id = {0}", id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
     }
 }
