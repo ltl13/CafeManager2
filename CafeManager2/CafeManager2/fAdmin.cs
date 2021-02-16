@@ -99,6 +99,8 @@ namespace CafeManager2
             {
                 MessageBox.Show("Thêm món thành công");
                 LoadListFood();
+                if (insertFood != null)
+                    insertFood(this, new EventArgs());
             }
             else { MessageBox.Show("Thêm món lỗi, vui lòng kiểm tra lại thông tin"); }
         }
@@ -113,6 +115,8 @@ namespace CafeManager2
             {
                 MessageBox.Show("Sửa món thành công");
                 LoadListFood();
+                if (updateFood != null)
+                    updateFood(this, new EventArgs());
             }
             else { MessageBox.Show("Sửa món lỗi, vui lòng kiểm tra lại thông tin"); }
         }
@@ -124,6 +128,8 @@ namespace CafeManager2
             {
                 MessageBox.Show("Xóa món thành công");
                 LoadListFood();
+                if (deleteFood != null)
+                    deleteFood(this, new EventArgs());
             }
             else { MessageBox.Show("Xóa món lỗi, vui lòng thử lại sau"); }
         }

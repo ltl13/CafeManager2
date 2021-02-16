@@ -121,9 +121,23 @@ namespace CafeManager2
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin fAd = new fAdmin();
+            fAd.InsertFood += fAd_InsertFood;
+            fAd.UpdateFood += fAd_UpdateFood;
+            fAd.DeleteFood += fAd_DeleteFood;
             fAd.ShowDialog();
         }
+        private void fAd_InsertFood(object sender, EventArgs e)
+        {
 
+        }
+        private void fAd_UpdateFood(object sender, EventArgs e)
+        {
+            LoadFoodListByCagetoryID((cbCategory.SelectedItem as Category).ID);
+        }
+        private void fAd_DeleteFood(object sender, EventArgs e)
+        {
+
+        }
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = 0;
