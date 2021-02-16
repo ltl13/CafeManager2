@@ -128,16 +128,16 @@ namespace CafeManager2
         }
         private void fAd_InsertFood(object sender, EventArgs e)
         {
-
+            LoadFoodListByCagetoryID((cbCategory.SelectedItem as Category).ID);
         }
         private void fAd_UpdateFood(object sender, EventArgs e)
         {
             LoadFoodListByCagetoryID((cbCategory.SelectedItem as Category).ID);
-            ShowBill((lsvBill.Tag as Table).ID);
         }
         private void fAd_DeleteFood(object sender, EventArgs e)
         {
-
+            LoadFoodListByCagetoryID((cbCategory.SelectedItem as Category).ID);
+            LoadTable();
         }
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
