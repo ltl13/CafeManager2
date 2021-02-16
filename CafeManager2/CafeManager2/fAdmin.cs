@@ -50,9 +50,9 @@ namespace CafeManager2
         }
         void AddFoodBinding()
         {
-            tbxFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name"));
-            tbxFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "id"));
-            nudFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "price"));
+            tbxFoodName.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            tbxFoodID.DataBindings.Add(new Binding("Text", dtgvFood.DataSource, "id", true, DataSourceUpdateMode.Never));
+            nudFoodPrice.DataBindings.Add(new Binding("Value", dtgvFood.DataSource, "price", true, DataSourceUpdateMode.Never));
         }
         void LoadCategoryIntoCombobox(ComboBox cb)
         {
@@ -88,6 +88,24 @@ namespace CafeManager2
                     i++;
                 }
             }            
+        }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            string name = tbxFoodName.Text;
+            int categoryID = (cbFoodCategory.SelectedItem as Category).ID;
+            float price = (float)nudFoodPrice.Value;
+            if (FoodDAO.Instance.InsertFood(name, categoryID, price))
+            {
+                MessageBox.Show("Thêm món thành công");
+                LoadListFood();
+            }
+            else { MessageBox.Show("Thêm món lỗi, vui lòng kiểm tra lại thông tin"); }
+        }
+
+        private void btnEditFood_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
     }

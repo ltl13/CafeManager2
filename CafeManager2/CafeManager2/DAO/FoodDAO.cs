@@ -41,5 +41,17 @@ namespace CafeManager2.DAO
             }
             return list;
         }
+        public bool InsertFood(string name, int id, float price)
+        {
+            string query = string.Format("insert dbo.Food (name, idCategory, price) values (N'{0}', {1}, {2})", name, id, price);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+        public bool UpdateFood(int id, string name, int idCategory, float price)
+        {
+            string query = string.Format("update dbo.Food set name = N'{0}', idCategory = {1}, price = {2} where id = {3}", name, idCategory, price, id);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
     }
 }
