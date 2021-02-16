@@ -45,7 +45,7 @@ namespace CafeManager2
         {
             tbxUsername.DataBindings.Add("Text", dtgvUser.DataSource, "UserName", true, DataSourceUpdateMode.Never);
             tbxUserDisplayName.DataBindings.Add("Text", dtgvUser.DataSource, "DisplayName", true, DataSourceUpdateMode.Never);
-            tbxAccoutType.DataBindings.Add("Text", dtgvUser.DataSource, "Type", true, DataSourceUpdateMode.Never);
+            nudAccountType.DataBindings.Add("Value", dtgvUser.DataSource, "Type", true, DataSourceUpdateMode.Never);
         }
         void LoadAccount()
         {
@@ -102,7 +102,7 @@ namespace CafeManager2
         {
             string userName = tbxUsername.Text;
             string displayName = tbxUserDisplayName.Text;
-            int type = Convert.ToInt32(tbxAccoutType.Text);
+            int type = Convert.ToInt32(nudAccountType.Text);
             InsertAccount(userName, displayName, type);
         }
 
@@ -110,7 +110,7 @@ namespace CafeManager2
         {
             string userName = tbxUsername.Text;
             string displayName = tbxUserDisplayName.Text;
-            int type = Convert.ToInt32(tbxAccoutType.Text);
+            int type = Convert.ToInt32(nudAccountType.Text);
             UpdateAccount(userName, displayName, type);
         }
 
