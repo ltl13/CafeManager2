@@ -15,7 +15,7 @@ namespace CafeManager2.DAO
         public List<Food> SearchFoodByName(string name)
         {
             List<Food> list = new List<Food>();
-            string query = string.Format("select * from food where name = N'{0}'", name);
+            string query = string.Format("select * from food where name like N'%{0}%'", name);
             DataTable data = DataProvider.Instance.ExcuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
