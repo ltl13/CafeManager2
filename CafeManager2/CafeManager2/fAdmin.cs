@@ -127,6 +127,24 @@ namespace CafeManager2
             }
             else { MessageBox.Show("Xóa món lỗi, vui lòng thử lại sau"); }
         }
+        private event EventHandler insertFood;
+        public event EventHandler InsertFood
+        {
+            add { insertFood += value; }
+            remove { insertFood -= value; }
+        }
+        private event EventHandler deleteFood;
+        public event EventHandler DeleteFood
+        {
+            add { deleteFood += value; }
+            remove { deleteFood -= value; }
+        }
+        private event EventHandler updateFood;
+        public event EventHandler UpdateFood
+        {
+            add { updateFood += value; }
+            remove { updateFood -= value; }
+        }
         #endregion
     }
 }
