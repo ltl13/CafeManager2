@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,8 +21,17 @@ namespace CafeManager2.DAO
         private AccountDAO() { }
         public bool Login(string userName, string passWord)
         {
+            byte[] temp = ASCIIEncoding.ASCII.GetBytes(passWord);
+            byte[] hashData = new MD5CryptoServiceProvider().ComputeHash(temp);
+            string hashPass =  "";
+            foreach(byte item in hashData)
+            {
+                hashPass += item;
+            }
+            //var list = hashData.ToString();
+            //list.Reverse();
             string query = "USP_Login @userName , @passWord";
-            DataTable result = DataProvider.Instance.ExcuteQuery(query, new object[] { userName, passWord });
+            DataTable result = DataProvider.Instance.ExcuteQuery(query, new object[] { userName, passWord/*list*/ });
             return result.Rows.Count > 0;
         }
         public Account GetAccountByUserName(string userName)
