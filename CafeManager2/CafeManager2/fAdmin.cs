@@ -35,7 +35,7 @@ namespace CafeManager2
             dtgvFood.DataSource = foodList;
             dtgvUser.DataSource = accountList;
             LoadDateTimePickerBill();
-            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value, 1);
             LoadListFood();
             AddFoodBinding();
             LoadCategoryIntoCombobox(cbFoodCategory);
@@ -125,6 +125,39 @@ namespace CafeManager2
         }
         #endregion
         #region event
+        private void tbxPageNumBill_TextChanged(object sender, EventArgs e)
+        {
+            dtgvBill.DataSource = BillDAO.Instance.GetListBillByDate(dtpkFrom.Value, dtpkTo.Value, Convert.ToInt32(tbxPageNumBill.Text));
+        }
+        private void btnFirstBillPage_Click(object sender, EventArgs e)
+        {
+            tbxPageNumBill.Text = "1";
+        }
+
+        private void btnLastBillPage_Click(object sender, EventArgs e)
+        {
+            int sumRecord = BillDAO.Instance.GetNumListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            int lastPage = sumRecord / 10;
+            if(sumRecord % 10 != 0) { lastPage++; }
+            tbxPageNumBill.Text = lastPage.ToString();
+        }
+
+        private void btnPreviousBillPage_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(tbxPageNumBill.Text);
+            if (page > 1) page--;
+            tbxPageNumBill.Text = page.ToString();
+        }
+
+        private void btnNextBillPage_Click(object sender, EventArgs e)
+        {
+            int sumRecord = BillDAO.Instance.GetNumListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            int lastPage = sumRecord / 10;
+            if (sumRecord % 10 != 0) { lastPage++; }
+            int page = Convert.ToInt32(tbxPageNumBill.Text);
+            if (page < lastPage) page++;
+            tbxPageNumBill.Text = page.ToString();
+        }
         private void btnResetPassword_Click(object sender, EventArgs e)
         {
             string userName = tbxUsername.Text;
@@ -256,10 +289,6 @@ namespace CafeManager2
             LoadAccount();
         }
         #endregion
-
-        private void btnFirstBillPage_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
