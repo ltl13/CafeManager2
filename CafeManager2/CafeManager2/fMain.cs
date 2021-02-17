@@ -97,6 +97,15 @@ namespace CafeManager2
         #endregion
 
         #region Events
+        private void addFoodToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAddFood_Click(this, new EventArgs());
+        }
+
+        private void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnCheckOut_Click(this, new EventArgs());
+        }
         private void btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
@@ -208,5 +217,6 @@ namespace CafeManager2
             }
         }
         #endregion
+        
     }
 }
