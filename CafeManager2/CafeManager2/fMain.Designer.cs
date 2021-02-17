@@ -39,7 +39,6 @@
             this.cbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnSwitchTable = new System.Windows.Forms.Button();
             this.nudDiscount = new System.Windows.Forms.NumericUpDown();
-            this.btnDiscount = new System.Windows.Forms.Button();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.pnlAddFood = new System.Windows.Forms.Panel();
             this.btnAddFood = new System.Windows.Forms.Button();
@@ -52,6 +51,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDiscount)).BeginInit();
@@ -68,14 +68,14 @@
             this.accountToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(832, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(832, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 26);
             this.adminToolStripMenuItem.Text = "Admin";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -85,7 +85,7 @@
             this.informationToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // informationToolStripMenuItem
@@ -106,18 +106,18 @@
             // 
             this.fpnlTable.AutoScroll = true;
             this.fpnlTable.Dock = System.Windows.Forms.DockStyle.Left;
-            this.fpnlTable.Location = new System.Drawing.Point(0, 28);
+            this.fpnlTable.Location = new System.Drawing.Point(0, 30);
             this.fpnlTable.Name = "fpnlTable";
-            this.fpnlTable.Size = new System.Drawing.Size(437, 425);
+            this.fpnlTable.Size = new System.Drawing.Size(437, 423);
             this.fpnlTable.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tbxTotalPrice);
             this.panel1.Controls.Add(this.cbSwitchTable);
             this.panel1.Controls.Add(this.btnSwitchTable);
             this.panel1.Controls.Add(this.nudDiscount);
-            this.panel1.Controls.Add(this.btnDiscount);
             this.panel1.Controls.Add(this.btnCheckOut);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(437, 392);
@@ -164,15 +164,6 @@
             this.nudDiscount.TabIndex = 6;
             this.nudDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnDiscount
-            // 
-            this.btnDiscount.Location = new System.Drawing.Point(98, 0);
-            this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Size = new System.Drawing.Size(79, 32);
-            this.btnDiscount.TabIndex = 5;
-            this.btnDiscount.Text = "Discount";
-            this.btnDiscount.UseVisualStyleBackColor = true;
-            // 
             // btnCheckOut
             // 
             this.btnCheckOut.Dock = System.Windows.Forms.DockStyle.Right;
@@ -191,7 +182,7 @@
             this.pnlAddFood.Controls.Add(this.cbFood);
             this.pnlAddFood.Controls.Add(this.cbCategory);
             this.pnlAddFood.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlAddFood.Location = new System.Drawing.Point(437, 28);
+            this.pnlAddFood.Location = new System.Drawing.Point(437, 30);
             this.pnlAddFood.Name = "pnlAddFood";
             this.pnlAddFood.Size = new System.Drawing.Size(395, 68);
             this.pnlAddFood.TabIndex = 3;
@@ -249,9 +240,9 @@
             // 
             this.panel3.Controls.Add(this.lsvBill);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(437, 96);
+            this.panel3.Location = new System.Drawing.Point(437, 98);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(395, 296);
+            this.panel3.Size = new System.Drawing.Size(395, 294);
             this.panel3.TabIndex = 4;
             // 
             // lsvBill
@@ -266,7 +257,7 @@
             this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(0, 0);
             this.lsvBill.Name = "lsvBill";
-            this.lsvBill.Size = new System.Drawing.Size(395, 296);
+            this.lsvBill.Size = new System.Drawing.Size(395, 294);
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
@@ -290,6 +281,15 @@
             // 
             this.columnHeader4.Text = "Thành tiền";
             this.columnHeader4.Width = 75;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(105, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Discount";
             // 
             // fMain
             // 
@@ -337,7 +337,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.NumericUpDown nudDiscount;
-        private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.ComboBox cbSwitchTable;
         private System.Windows.Forms.Button btnSwitchTable;
         private System.Windows.Forms.ListView lsvBill;
@@ -346,5 +345,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.TextBox tbxTotalPrice;
+        private System.Windows.Forms.Label label1;
     }
 }
