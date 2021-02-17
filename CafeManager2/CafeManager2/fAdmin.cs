@@ -58,10 +58,10 @@ namespace CafeManager2
             dtpkFrom.Value = new DateTime(today.Year, today.Month, 1);
             dtpkTo.Value = dtpkFrom.Value.AddMonths(1).AddDays(-1);
         }
-        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut, int page)
         {
             if (checkIn <= checkOut)
-                dtgvBill.DataSource = BillDAO.Instance.GetListBillByDate(checkIn, checkOut);
+                dtgvBill.DataSource = BillDAO.Instance.GetListBillByDate(checkIn, checkOut, page);
             else
                 MessageBox.Show("Ngày không hợp lệ");
         }
@@ -153,7 +153,7 @@ namespace CafeManager2
         }
         private void btnView_Click(object sender, EventArgs e)
         {
-            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value, 1);
         }
 
         private void btnViewFood_Click(object sender, EventArgs e)
