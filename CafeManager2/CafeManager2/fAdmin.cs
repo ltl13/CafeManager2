@@ -256,6 +256,10 @@ namespace CafeManager2
             LoadAccount();
         }
         #endregion
-        
+
+        private void btnFirstBillPage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -87,6 +87,7 @@
             this.btnAddTable = new System.Windows.Forms.Button();
             this.tpAccount = new System.Windows.Forms.TabPage();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.nudAccountType = new System.Windows.Forms.NumericUpDown();
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.tbxUserDisplayName = new System.Windows.Forms.TextBox();
@@ -103,7 +104,10 @@
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.nudAccountType = new System.Windows.Forms.NumericUpDown();
+            this.btnFirstBillPage = new System.Windows.Forms.Button();
+            this.btnLastBillPage = new System.Windows.Forms.Button();
+            this.btnPreviousBillPage = new System.Windows.Forms.Button();
+            this.btnNextBillPage = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -128,11 +132,11 @@
             this.panel12.SuspendLayout();
             this.tpAccount.SuspendLayout();
             this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAccountType)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).BeginInit();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAccountType)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -164,6 +168,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnNextBillPage);
+            this.panel2.Controls.Add(this.btnPreviousBillPage);
+            this.panel2.Controls.Add(this.btnLastBillPage);
+            this.panel2.Controls.Add(this.btnFirstBillPage);
             this.panel2.Controls.Add(this.dtgvBill);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(3, 59);
@@ -176,23 +184,23 @@
             this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.BackgroundColor = System.Drawing.Color.White;
             this.dtgvBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvBill.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtgvBill.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dtgvBill.Location = new System.Drawing.Point(0, 0);
             this.dtgvBill.Name = "dtgvBill";
             this.dtgvBill.RowHeadersVisible = false;
             this.dtgvBill.RowHeadersWidth = 51;
             this.dtgvBill.RowTemplate.Height = 24;
-            this.dtgvBill.Size = new System.Drawing.Size(717, 442);
+            this.dtgvBill.Size = new System.Drawing.Size(717, 397);
             this.dtgvBill.TabIndex = 0;
             // 
             // panel1
@@ -735,6 +743,19 @@
             this.panel13.Size = new System.Drawing.Size(317, 435);
             this.panel13.TabIndex = 7;
             // 
+            // nudAccountType
+            // 
+            this.nudAccountType.Location = new System.Drawing.Point(130, 95);
+            this.nudAccountType.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudAccountType.Name = "nudAccountType";
+            this.nudAccountType.Size = new System.Drawing.Size(55, 28);
+            this.nudAccountType.TabIndex = 7;
+            this.nudAccountType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // btnResetPassword
             // 
             this.btnResetPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -889,18 +910,46 @@
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
-            // nudAccountType
+            // btnFirstBillPage
             // 
-            this.nudAccountType.Location = new System.Drawing.Point(130, 95);
-            this.nudAccountType.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudAccountType.Name = "nudAccountType";
-            this.nudAccountType.Size = new System.Drawing.Size(55, 28);
-            this.nudAccountType.TabIndex = 7;
-            this.nudAccountType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnFirstBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFirstBillPage.Location = new System.Drawing.Point(151, 403);
+            this.btnFirstBillPage.Name = "btnFirstBillPage";
+            this.btnFirstBillPage.Size = new System.Drawing.Size(76, 34);
+            this.btnFirstBillPage.TabIndex = 1;
+            this.btnFirstBillPage.Text = "First";
+            this.btnFirstBillPage.UseVisualStyleBackColor = true;
+            this.btnFirstBillPage.Click += new System.EventHandler(this.btnFirstBillPage_Click);
+            // 
+            // btnLastBillPage
+            // 
+            this.btnLastBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLastBillPage.Location = new System.Drawing.Point(435, 403);
+            this.btnLastBillPage.Name = "btnLastBillPage";
+            this.btnLastBillPage.Size = new System.Drawing.Size(76, 34);
+            this.btnLastBillPage.TabIndex = 2;
+            this.btnLastBillPage.Text = "Last";
+            this.btnLastBillPage.UseVisualStyleBackColor = true;
+            // 
+            // btnPreviousBillPage
+            // 
+            this.btnPreviousBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreviousBillPage.Location = new System.Drawing.Point(246, 403);
+            this.btnPreviousBillPage.Name = "btnPreviousBillPage";
+            this.btnPreviousBillPage.Size = new System.Drawing.Size(76, 34);
+            this.btnPreviousBillPage.TabIndex = 3;
+            this.btnPreviousBillPage.Text = "Previous";
+            this.btnPreviousBillPage.UseVisualStyleBackColor = true;
+            // 
+            // btnNextBillPage
+            // 
+            this.btnNextBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNextBillPage.Location = new System.Drawing.Point(344, 403);
+            this.btnNextBillPage.Name = "btnNextBillPage";
+            this.btnNextBillPage.Size = new System.Drawing.Size(76, 34);
+            this.btnNextBillPage.TabIndex = 4;
+            this.btnNextBillPage.Text = "Next";
+            this.btnNextBillPage.UseVisualStyleBackColor = true;
             // 
             // fAdmin
             // 
@@ -940,12 +989,12 @@
             this.tpAccount.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAccountType)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvUser)).EndInit();
             this.panel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudAccountType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1027,5 +1076,9 @@
         private System.Windows.Forms.NumericUpDown nudFoodPrice;
         private System.Windows.Forms.ComboBox cbFoodCategory;
         private System.Windows.Forms.NumericUpDown nudAccountType;
+        private System.Windows.Forms.Button btnNextBillPage;
+        private System.Windows.Forms.Button btnPreviousBillPage;
+        private System.Windows.Forms.Button btnLastBillPage;
+        private System.Windows.Forms.Button btnFirstBillPage;
     }
 }
