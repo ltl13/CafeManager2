@@ -52,6 +52,9 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
+            this.functionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addFoodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDiscount)).BeginInit();
@@ -65,10 +68,11 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
-            this.accountToolStripMenuItem});
+            this.accountToolStripMenuItem,
+            this.functionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(832, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(832, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -106,9 +110,9 @@
             // 
             this.fpnlTable.AutoScroll = true;
             this.fpnlTable.Dock = System.Windows.Forms.DockStyle.Left;
-            this.fpnlTable.Location = new System.Drawing.Point(0, 30);
+            this.fpnlTable.Location = new System.Drawing.Point(0, 28);
             this.fpnlTable.Name = "fpnlTable";
-            this.fpnlTable.Size = new System.Drawing.Size(437, 423);
+            this.fpnlTable.Size = new System.Drawing.Size(437, 425);
             this.fpnlTable.TabIndex = 1;
             // 
             // panel1
@@ -182,7 +186,7 @@
             this.pnlAddFood.Controls.Add(this.cbFood);
             this.pnlAddFood.Controls.Add(this.cbCategory);
             this.pnlAddFood.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlAddFood.Location = new System.Drawing.Point(437, 30);
+            this.pnlAddFood.Location = new System.Drawing.Point(437, 28);
             this.pnlAddFood.Name = "pnlAddFood";
             this.pnlAddFood.Size = new System.Drawing.Size(395, 68);
             this.pnlAddFood.TabIndex = 3;
@@ -240,9 +244,9 @@
             // 
             this.panel3.Controls.Add(this.lsvBill);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(437, 98);
+            this.panel3.Location = new System.Drawing.Point(437, 96);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(395, 294);
+            this.panel3.Size = new System.Drawing.Size(395, 296);
             this.panel3.TabIndex = 4;
             // 
             // lsvBill
@@ -257,7 +261,7 @@
             this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(0, 0);
             this.lsvBill.Name = "lsvBill";
-            this.lsvBill.Size = new System.Drawing.Size(395, 294);
+            this.lsvBill.Size = new System.Drawing.Size(395, 296);
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
@@ -290,6 +294,31 @@
             this.label1.Size = new System.Drawing.Size(63, 17);
             this.label1.TabIndex = 10;
             this.label1.Text = "Discount";
+            // 
+            // functionToolStripMenuItem
+            // 
+            this.functionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addFoodToolStripMenuItem,
+            this.checkOutToolStripMenuItem});
+            this.functionToolStripMenuItem.Name = "functionToolStripMenuItem";
+            this.functionToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.functionToolStripMenuItem.Text = "Shortcut keys";
+            // 
+            // addFoodToolStripMenuItem
+            // 
+            this.addFoodToolStripMenuItem.Name = "addFoodToolStripMenuItem";
+            this.addFoodToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.addFoodToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addFoodToolStripMenuItem.Text = "Add food";
+            this.addFoodToolStripMenuItem.Click += new System.EventHandler(this.addFoodToolStripMenuItem_Click);
+            // 
+            // checkOutToolStripMenuItem
+            // 
+            this.checkOutToolStripMenuItem.Name = "checkOutToolStripMenuItem";
+            this.checkOutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.checkOutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.checkOutToolStripMenuItem.Text = "Check out";
+            this.checkOutToolStripMenuItem.Click += new System.EventHandler(this.checkOutToolStripMenuItem_Click);
             // 
             // fMain
             // 
@@ -346,5 +375,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.TextBox tbxTotalPrice;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem functionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addFoodToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkOutToolStripMenuItem;
     }
 }
