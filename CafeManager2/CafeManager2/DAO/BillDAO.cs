@@ -49,5 +49,9 @@ namespace CafeManager2.DAO
         {
             return DataProvider.Instance.ExcuteQuery("USP_GetListBillByDate @checkIn , @checkOut , @page", new object[] { checkIn, checkOut, page });
         }
+        public int GetNumListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("USP_GetNumBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
+        }
     }
 }
