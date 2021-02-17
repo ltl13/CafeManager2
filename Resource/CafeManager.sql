@@ -275,17 +275,16 @@ alter proc USP_GetListBillByDate
 @checkIn date, @checkOut date, @page int
 as
 begin
-	declare @pageRow int = 10
-	declare @selectRow int = @pageRow
+	declare @pageRow int = 9
 	declare @exceptRow int = (@page - 1) * @pageRow
 	;with BillShow as 
 	(select b.id, t.name as [Bàn], b.total as [Tổng tiền(VND)], DateCheckIn as [Ngày check in], DateCheckOut as [Ngày check out], discount [Giảm giá(%)]
 	from dbo.Bill as b, dbo.TableFood as t
 	where DateCheckIn >= @checkIn and DateCheckOut <= @checkOut and b.status = 1
 	and t.id = b.idTable)
-	select top (@selectRow) * from BillShow
-	where not exists
-	(select top (@exceptRow) * from BillShow)
+	select top (@pageRow) * from BillShow
+	where id not in
+	(select top (@exceptRow) id from BillShow)
 end
 go
 
