@@ -45,9 +45,13 @@ namespace CafeManager2.DAO
             string query = "update dbo.Bill set status = 1, DateCheckOut = getdate(), " + "discount = " + discount + ", total = " + total + " where id = " + id;
             DataProvider.Instance.ExecuteNonQuery(query);
         }
-        public DataTable GetListBillByDate(DateTime checkIn, DateTime checkOut)
+        public DataTable GetListBillByDate(DateTime checkIn, DateTime checkOut, int page)
         {
-            return DataProvider.Instance.ExcuteQuery("USP_GetListBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
+            return DataProvider.Instance.ExcuteQuery("USP_GetListBillByDate @checkIn , @checkOut , @page", new object[] { checkIn, checkOut, page });
+        }
+        public int GetNumListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("USP_GetNumBillByDate @checkIn , @checkOut", new object[] { checkIn, checkOut });
         }
     }
 }

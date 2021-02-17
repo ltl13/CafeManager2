@@ -35,7 +35,7 @@ namespace CafeManager2
             dtgvFood.DataSource = foodList;
             dtgvUser.DataSource = accountList;
             LoadDateTimePickerBill();
-            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value, 1);
             LoadListFood();
             AddFoodBinding();
             LoadCategoryIntoCombobox(cbFoodCategory);
@@ -58,10 +58,10 @@ namespace CafeManager2
             dtpkFrom.Value = new DateTime(today.Year, today.Month, 1);
             dtpkTo.Value = dtpkFrom.Value.AddMonths(1).AddDays(-1);
         }
-        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut, int page)
         {
             if (checkIn <= checkOut)
-                dtgvBill.DataSource = BillDAO.Instance.GetListBillByDate(checkIn, checkOut);
+                dtgvBill.DataSource = BillDAO.Instance.GetListBillByDate(checkIn, checkOut, page);
             else
                 MessageBox.Show("Ngày không hợp lệ");
         }
@@ -125,6 +125,39 @@ namespace CafeManager2
         }
         #endregion
         #region event
+        private void tbxPageNumBill_TextChanged(object sender, EventArgs e)
+        {
+            dtgvBill.DataSource = BillDAO.Instance.GetListBillByDate(dtpkFrom.Value, dtpkTo.Value, Convert.ToInt32(tbxPageNumBill.Text));
+        }
+        private void btnFirstBillPage_Click(object sender, EventArgs e)
+        {
+            tbxPageNumBill.Text = "1";
+        }
+
+        private void btnLastBillPage_Click(object sender, EventArgs e)
+        {
+            int sumRecord = BillDAO.Instance.GetNumListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            int lastPage = sumRecord / 10;
+            if(sumRecord % 10 != 0) { lastPage++; }
+            tbxPageNumBill.Text = lastPage.ToString();
+        }
+
+        private void btnPreviousBillPage_Click(object sender, EventArgs e)
+        {
+            int page = Convert.ToInt32(tbxPageNumBill.Text);
+            if (page > 1) page--;
+            tbxPageNumBill.Text = page.ToString();
+        }
+
+        private void btnNextBillPage_Click(object sender, EventArgs e)
+        {
+            int sumRecord = BillDAO.Instance.GetNumListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            int lastPage = sumRecord / 10;
+            if (sumRecord % 10 != 0) { lastPage++; }
+            int page = Convert.ToInt32(tbxPageNumBill.Text);
+            if (page < lastPage) page++;
+            tbxPageNumBill.Text = page.ToString();
+        }
         private void btnResetPassword_Click(object sender, EventArgs e)
         {
             string userName = tbxUsername.Text;
@@ -153,7 +186,7 @@ namespace CafeManager2
         }
         private void btnView_Click(object sender, EventArgs e)
         {
-            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value);
+            LoadListBillByDate(dtpkFrom.Value, dtpkTo.Value, 1);
         }
 
         private void btnViewFood_Click(object sender, EventArgs e)
@@ -256,6 +289,6 @@ namespace CafeManager2
             LoadAccount();
         }
         #endregion
-        
+       
     }
 }
