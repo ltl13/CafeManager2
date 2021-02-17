@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpBill = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -108,6 +108,7 @@
             this.btnLastBillPage = new System.Windows.Forms.Button();
             this.btnPreviousBillPage = new System.Windows.Forms.Button();
             this.btnNextBillPage = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -168,6 +169,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.btnNextBillPage);
             this.panel2.Controls.Add(this.btnPreviousBillPage);
             this.panel2.Controls.Add(this.btnLastBillPage);
@@ -184,14 +186,14 @@
             this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.BackgroundColor = System.Drawing.Color.White;
             this.dtgvBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBill.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtgvBill.GridColor = System.Drawing.SystemColors.ActiveBorder;
@@ -913,7 +915,7 @@
             // btnFirstBillPage
             // 
             this.btnFirstBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFirstBillPage.Location = new System.Drawing.Point(151, 403);
+            this.btnFirstBillPage.Location = new System.Drawing.Point(124, 403);
             this.btnFirstBillPage.Name = "btnFirstBillPage";
             this.btnFirstBillPage.Size = new System.Drawing.Size(76, 34);
             this.btnFirstBillPage.TabIndex = 1;
@@ -924,7 +926,7 @@
             // btnLastBillPage
             // 
             this.btnLastBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLastBillPage.Location = new System.Drawing.Point(435, 403);
+            this.btnLastBillPage.Location = new System.Drawing.Point(497, 403);
             this.btnLastBillPage.Name = "btnLastBillPage";
             this.btnLastBillPage.Size = new System.Drawing.Size(76, 34);
             this.btnLastBillPage.TabIndex = 2;
@@ -934,7 +936,7 @@
             // btnPreviousBillPage
             // 
             this.btnPreviousBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreviousBillPage.Location = new System.Drawing.Point(246, 403);
+            this.btnPreviousBillPage.Location = new System.Drawing.Point(219, 403);
             this.btnPreviousBillPage.Name = "btnPreviousBillPage";
             this.btnPreviousBillPage.Size = new System.Drawing.Size(76, 34);
             this.btnPreviousBillPage.TabIndex = 3;
@@ -944,12 +946,19 @@
             // btnNextBillPage
             // 
             this.btnNextBillPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNextBillPage.Location = new System.Drawing.Point(344, 403);
+            this.btnNextBillPage.Location = new System.Drawing.Point(406, 403);
             this.btnNextBillPage.Name = "btnNextBillPage";
             this.btnNextBillPage.Size = new System.Drawing.Size(76, 34);
             this.btnNextBillPage.TabIndex = 4;
             this.btnNextBillPage.Text = "Next";
             this.btnNextBillPage.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(306, 405);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(89, 28);
+            this.textBox1.TabIndex = 5;
             // 
             // fAdmin
             // 
@@ -963,6 +972,7 @@
             this.tcAdmin.ResumeLayout(false);
             this.tpBill.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tpFood.ResumeLayout(false);
@@ -1080,5 +1090,6 @@
         private System.Windows.Forms.Button btnPreviousBillPage;
         private System.Windows.Forms.Button btnLastBillPage;
         private System.Windows.Forms.Button btnFirstBillPage;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
