@@ -47,7 +47,7 @@ namespace CafeManager2.DAO
         }
         public DataTable GetListBillByDate(DateTime checkIn, DateTime checkOut, int page)
         {
-            return DataProvider.Instance.ExcuteQuery("USP_GetListBillByDate @checkIn , @checkOut, @page", new object[] { checkIn, checkOut });
+            return DataProvider.Instance.ExcuteQuery("USP_GetListBillByDate @checkIn , @checkOut , @page", new object[] { checkIn, checkOut, page });
         }
     }
 }
