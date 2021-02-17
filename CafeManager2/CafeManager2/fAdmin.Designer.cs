@@ -108,7 +108,7 @@
             this.btnLastBillPage = new System.Windows.Forms.Button();
             this.btnPreviousBillPage = new System.Windows.Forms.Button();
             this.btnNextBillPage = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxPageNumBill = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tpBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -169,7 +169,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tbxPageNumBill);
             this.panel2.Controls.Add(this.btnNextBillPage);
             this.panel2.Controls.Add(this.btnPreviousBillPage);
             this.panel2.Controls.Add(this.btnLastBillPage);
@@ -953,12 +953,15 @@
             this.btnNextBillPage.Text = "Next";
             this.btnNextBillPage.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbxPageNumBill
             // 
-            this.textBox1.Location = new System.Drawing.Point(306, 405);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(89, 28);
-            this.textBox1.TabIndex = 5;
+            this.tbxPageNumBill.Location = new System.Drawing.Point(306, 405);
+            this.tbxPageNumBill.Name = "tbxPageNumBill";
+            this.tbxPageNumBill.ReadOnly = true;
+            this.tbxPageNumBill.Size = new System.Drawing.Size(89, 28);
+            this.tbxPageNumBill.TabIndex = 5;
+            this.tbxPageNumBill.Text = "1";
+            this.tbxPageNumBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // fAdmin
             // 
@@ -1090,6 +1093,6 @@
         private System.Windows.Forms.Button btnPreviousBillPage;
         private System.Windows.Forms.Button btnLastBillPage;
         private System.Windows.Forms.Button btnFirstBillPage;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxPageNumBill;
     }
 }
